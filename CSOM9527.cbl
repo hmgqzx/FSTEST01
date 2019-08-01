@@ -7,7 +7,411 @@
        COPY XCWWCRHT.
 
       *****************************************************************
-
+      **  MEMBER :  CSOM8000                                         **
+      **  REMARKS:  THIS MODULE PERFORMS THE RETRIEVE FUNCTION OF    **
+      **            POLICY INFORMATION                               **
+      **                                                             **
+      **  DOMAIN :  PO                                               **
+      *****************************************************************
+      **  RELEASE   DESCRIPTION                                      **
+      **                                                             **
+014590**  6.0       ARCHITECTURAL CHANGES                            **
+014653**  6.0       ORIGINAL - NEW FOR RELEASE 6.0                   **
+014660**  6.0       REMOVAL OF XCPPMEXT                              **
+014221**  6.2       LOGICAL LOCKING                                  **
+015904**  6.2       CLEANUP MIR FIELD NAMES                          **
+016395**  6.2       CREDIT CARD PROCESSING                           **
+016440**  6.2       COMBINE NEWBUS AND ADMIN                         **
+016537**  6.2       CODE CLEAN UP                                    **
+016548**  6.2       CHANGE COMP TO BINARY                            **
+017207**  6.2       FIX FOR INCORRECT SERVICING AGENT NAME           **
+013697**  6.3       ROTH IRA / EDUCATIONAL IRA                       **
+016641**  6.3       EXTENSIVE NUMERIC FORMATTING                     **
+018764**  6.3       LINKAGE AREA MODIFICATIONS                       **
+020462**  6.4       ISO DATE STANDARDIZATION                         **
+018633**  6.4       TWRK CLEANUP                                     **
+020452**  6.4       FOREIGN CONTENT FOR RRSP PRODUCTS                **
+020453**  6.4       RECORD POLICY SETTLEMENT OPTIONS                 **
+020463**  6.4       INVESTOR PROFILES                                **
+020475**  6.4       DEATH BENEFIT GUARANTEES AND RIDERS              **
+020874**  6.4       MIR STANDARDIZED NUMERIC FORMATTING              **
+ACL002**  00002     JUL 31, 2002 HOLDEN ZHANG                        **
+ACL002**            ADD CLIENT CLASSIFICATION(VIP) FIELD             **
+APR005**  00002     JUL 31, 2002 HOLDEN ZHANG                        **
+APR005**            ADD MODE FACTOR TYPE FIELD                       **
+APR002**  00002     JUL 31, 2002 HOLDEN ZHANG                        **
+APR002**            ADD PREMIUM HOLIDAY INDICATOR,PREMIUM HOLIDAY    **
+APR002**            STATUS FIELDS                                    **
+ANB007**  00002     JUL 31, 2002 HOLDEN ZHANG                        **
+ANB007**            ADD INSURED APPLICATION NATURE,PAYOR APPLICATION **
+ANB007**            NATURE,POLICY CONTRACT DATE,INITIAL ADHOC TOP UP,**
+ANB007**            WITHHELD COMMISSION INDICATOR,POLICY ENTRY DATE, **
+ANB007**            INSURED HEALTH QUESTION YES,PAYOR HEALTH QUESTION**
+ANB007**            YES,EXTRA COMMISSION ELIGIBILITY,REISSUE         **
+ANB007**            INDICATOR,SPECIAL QUOTATION INDICATOR,STATUS     **
+ANB007**            REASON CODE,PAYMENT TYPE CODE,LAST CHEQUE        **
+ANB007**            CLEARING DATE FIELDS                             **
+APR005**  00002     JUL 18, 2002    JUSTIN SU                        **
+APR005**            COVERAGE LEVEL MODE FACTOR                       **
+ANB007**  00002     AUG 07, 2002  SUNPACHAI.A                        **
+ANB007**            NB CAPTURE EDITING                               **
+AAG008**  00002     SEP 20, 2002  LEON LIU                           **
+AAG008**            WRITING AGENT                                    **
+ANB008**  00002     SEP 27, 2002  MARTIN LU                          **
+ANB008**            ISSUE/SETTLE SCREENS TP SHOW PREMIUMS RECEIVED   **
+ANB008**            AND APPLIED                                      **
+AAG005**  00002     SEP 09, 2002 HOLDEN ZHANG                        **
+AAG005**            SERVICING AGENT HANDLING                         **
+ABC003**  00002     OCT 16, 2002 KELVIN CHAN                         **
+ABC003**            ADD POL-SPND-IND RETRIEVAL FOR BF9097            **
+ANB008**  00002     OCT 30, 2002 MARTIN LU                           **
+ANB008**            FIXED ISSUE/SETTLE SCREENS TP SHOW PREMIUMS      **
+ANB008**            RECEIVED AND APPLIED                             **
+ANB007**  00002     NOV 14, 2002 PHYLLIS LAM                         **
+ANB007**            ENABLE AGENT HS LOSS RATIO & PREMIER STATUS      **
+AAG005**  00002     NOV 27, 2002 HOLDEN ZHANG                        **
+AAG005**            SERVICING AGENT HANDLING                         **
+ANB007**  00002     NOV 29, 2002 PHYLLIS LAM                         **
+ANB007**            ADD POLICY INFORCE DATE                          **
+ANB007**  00002     DEC 02, 2002 PHYLLIS LAM                         **
+ANB007**            ADD NB LAST PAYMENT DATE                         **
+ANB008**  00002     DEC 13, 2002 MARTIN LU                           **
+ANB008**            ONLY CALL MQ WHEN SETTLE POLICY FOR GETTING NON- **
+ANB008**            POST AMOUNT                                      **
+APA006**  00003     MAR 18, 2003 HOLDEN ZHANG                        **
+APA006**            POLICY RESTRICTION                               **
+APA022**  00003     JUN 09, 2003 TOBY LAM                            **
+APA022**            ENHANCED INQUIRY - LAPSE START DATE              **
+APA020**  00003     MAY 26, 2003 SUNPACHAI A.                        **
+APA020**            POLICY SUSPEND INDICATOR                         **
+ANB021**  00003     JUN 11, 2003 JERY WEI                            **
+ANB021**            ADDITIONAL PHASE I ENHANCEMENT                   **
+AGL079**  REL6.4    AUG 06, 2003  JUSTIN SU                          **
+AGL079**            V6.3.1 THAI CHANGES RETROFIT TO V6.4             **
+WNB002**  00001     FEB 02, 2004   RAIN LEI                          **
+WNB002**            PIL POLICY ACKNOWLEDGEMENT FORM                  **
+WCL002**  00001     DEC 16, 2003  RAIN LEI                           **
+WCL002**            ADD OTHER CLIENT ADDRESS                         **
+WNB003**  00001     APR 01, 2004  LIMEI HSIEH                        **
+WNB003**            NB APPLICATION ENTRY                             **
+AGL116**  00003     DEC 11, 2003 ROONGTIWA S.                        **
+AGL116**            PENDING FUND UNITIZATION DATE                    **
+AGL116**  00003     MAR 25, 2004  KUAN CHEN                          **
+AGL116**            CORE RETROFIT                                    **
+WAG005**  00001     MAY 04, 2004  RAINBOW YU                         **
+WAG005**            ADD PRIMARY WRITING AGENT INDICATOR (CRF#040)    **
+WCL002**  00001     JUN 03, 2004  CONY HUANG                         **
+WCL002**            ADD POLICY CONTACT EMAIL                         **
+WNB003**  00001     JUN 17, 2004  KERRY TSAI                         **
+WNB003**            CAMPAIGN CODE NEED DISPLAY & SET UP AT PH TABLE  **
+WNB003**            PIR REFERENCE : PIR-ST-0088                      **
+WNB003**  00001     JUL 18, 2004  ROSA LU                            **
+WNB003**            PIR 447 FIX                                      **
+WNB003**            ADD FOLLOWING INFORMATION TO ON-LINE SCREEN      **
+WNB003**                AGENT CLASS CODE                             **
+WNB003**                AGENT CATEGORY CODE                          **
+WNB003**                AGENT CONTRACT START DATE                    **
+WNB003**  00001     JUL 29, 2004  LIMEI HSIEH                        **
+WNB003**            CHANGE CCFRZPAY,CCFWZPAY TO NCFRZPAY, NCFRZPAY   **
+WNB012**  00001     OCT 4, 2004   SARAH CHANG                        **
+WNB012**            ADD NEW FIELD: POL-EMPLE-IND                     **
+WNB014**  00001     NOV 11, 2004  FRANK LIU                          **
+WNB014**            ADD TWO NEW FIELDS:                              **
+WNB014**            POL-CCAS-IND, OTHR-ISS-REQIR-IND                 **
+WNB022**  00001     DEC 17, 2004  BRETT CHIEN                        **
+WNB022**            ADD E-AAS PENDING MEMO DATE & ACKNOWLEDGEMENT DUE**
+WNB022**            RECEIVED DATE & ACKNOWLEDGEMENT DUE FINAL DATE & **
+WNB022**            END OF FREE LOOK DATE                            **
+WNB015**  00001     FEB 22, 2005  FRANK LIU                          **
+WNB015**            ADD TWO ADDRESS FIELDS,MIR-INSRD-DCLR-1-CD       **
+WNB015**            MIR-INSRD-DCLR-2-CD,MIR-INSRD-DCLR-3-CD          **
+WBC018**  00001     FEB 02, 2005  STEPHANIE HUANG                    **
+WBC018**            POLICY UPDATE SCREEN ENHANCEMENT                 **
+WAG012**  00001     FEB 27, 2005  KUAN CHEN                          **
+WAG012**            CAMPAIGN CODE PROCESSING                         **
+WNB015**  00001     MAR 10, 2005  RAINMAN FENG                       **
+WNB015**            ADDRESS DISPLAY NEED INCLUDE COUNTY CITY         **
+WNB015**            (UAT-PIR-869)                                    **
+WNB021**  00001     FEB 23, 2005  PETER CHANG                        **
+WNB021**            ADD ONE NEW FIELDS:                              **
+WNB021**            POL-NB-INI-PMT-DT                                **
+WNB015**  00001     MAR 19, 2005  RICHARD JAN                        **
+WNB015**            INQUIRY ASSET REBALANCE STATUS                   **
+WNB015**  00001     MAR 29, 2005  RAINMAN FENG                       **
+WNB015**            ADDRESS DISPLAY NEED ADDRESS 2 AND ADDRESS 3     **
+WNB015**            (UAT-PIR-869)                                    **
+WBC028**  00001     APR 12, 2005  VIVI LIN                           **
+WBC028**            ADD REGULAR TOP UP FOR  WBC028                   **
+WNB015**  00001     APR 13, 2005  SIMON CHIEN                        **
+WNB015**            FIX UAT-PIR-840 (ADD FUND ALLOCATION INFO)       **
+WNB015**  00001     APR 20, 2005  RAINMAN FENG                       **
+WNB015**            OTHER ADDRESS DISPLAY ERROR (PIS-106)            **
+WBC018**  00001     MAY 19, 2005  STEPHANIE HUANG                    **
+WBC018**            USE PREV BILL TYPE TO GET PAYER                  **
+WBC018**            INFORMATION WHEN CURRENT BILL TYPE IS DIRECT BILL**
+WPR018**  00001     JUN 14, 2005  JACKY HUANG                        **
+WPR018**            ADD NEW FIELD: ANTY-GUAR-YR-DUR                  **
+WPR018**  00001     JUN 24, 2005  BRETT CHIEN                        **
+WPR018**            SPDA                                             **
+WPR018**  00001     JUL 04, 2005  BRETT CHIEN                        **
+WPR018**            ADD ACKNOWLEDGEMENT EXTENSION INDICATOR          **
+WPR019**  00001     JUL 05, 2005  CALVIN CHEN                        **
+WPR019**            ADD NEW FIELD: MIR-POL-ANPAYO-OPT-CD             **
+APR053**  00003     NOV 17, 2003 ROONGTIWA S.                        ** AGL139
+APR053**            FREE LOOK TRANSFER DATE                          ** AGL139
+BNB005**  00003     NOV 17, 2003  MOSES MO                           ** AGL139
+BNB005**            INTERFACE WITH FREELOOK                          ** AGL139
+APA060**  00004     DEC 11, 2003 ROONGTIWA S.                        ** AGL139
+APA060**            PENDING FUND UNITIZATION DATE                    ** AGL139
+BAG002**  00004     DEC 30, 2003 GLORIA CHEN                         ** AGL139
+BAG002**            SERVICING AGENT ON COMPLAINT POLICY              ** AGL139
+APR051**  00004     JAN 30, 2004 TIGER WANG                          ** AGL139
+APR051**            ADD APL STOP RULE AND NFO RESTRICTION RULE       ** AGL139
+BAG002**  00004     FEB 05, 2004 PHYLLIS LAM                         ** AGL139
+BAG002**            FIX BUG ON SERVICING AGENT NAME DISPLAY          ** AGL139
+ANB007**  00004     APR 05, 2004  MOSES MO                           ** AGL139
+ANB007**            DISPLAY INSURED WHO NOT SAME AS OWNER            ** AGL139
+ANB007**            AND REJECT REASON  (ST_PIR 111)                  ** AGL139
+ANB008**  00004     APR 02, 2004  MOSES MO                           ** AGL139
+ANB008**            HANDLE RETRIEVAL OF NON-POSTED DEPOSIT           ** AGL139
+ANB008**            OF STANDALONE POLICIES FOR WLP PRODUCT           ** AGL139
+ANB008**  00004     APR 22, 2004  MOSES MO                           ** AGL139
+ANB008**            FIX ON NON-POSTED DEPOSIT OF STANDALONE POLICIES ** AGL139
+ANB006**  00005     JAN 28, 2003 CHAIANUNT C.                        ** AGL139
+ANB006**            NEW FILED ON NB CAPTURE SCREEN                   ** AGL139
+APR061**  REL6.5    JUN 15, 2004  WILSON WANG                        ** AGL139
+APR061**            EXCESS DIVIDEND OPTION                           ** AGL139
+ANB008**  00005     JUL 29, 2004 HOLDEN ZHANG                        ** AGL139
+ANB008**            PR #05                                           ** AGL139
+ANB008**            GET NON-POSTED AMOUNT ACCORDING TO POLICY TYPE   ** AGL139
+ANB008**  00005     OCT 20, 2004 CHAIANUNT C.                        ** AGL139
+ANB008**            PR #05                                           ** AGL139
+ANB008**            CALL LFCM-SD-PAY AND LFCM-PAY FOR POLICY IS      ** AGL139
+ANB008**            CREATED ON SAME DAY                              ** AGL139
+APR086**  00006     SEP 02, 2004 EVA CHAN                            ** AGL139
+APR086**            PR #02                                           ** AGL139
+APR086**            EXCESS COUPON OPTION                             ** AGL139
+APR079**  00006     NOV 26, 2004 KEITH WONG                          ** AGL139
+APR079**            PR #01                                           ** AGL139
+APR079**            ADD DEFAULT NFO INDICATOR FOR PAID UP CASES      ** AGL139
+APR087**  00006     DEC 01, 2004 KEN CHAU                            ** AGL139
+APR087**            PR# 02                                           ** AGL139
+APR087**            ADD NEW FIELD - CONTEST MERGING POLICY           ** AGL139
+ANB006**  00006     OCT 27, 2004 JOHN CHEN                           ** AGL139
+ANB006**            PR#20                                            ** AGL139
+ANB006**            PACKAGE PLAN SUPPORT                             ** AGL139
+ANB006**            PR#22                                            ** AGL139
+ANB006**            NEW FIELDS ON NB CAPTURE SCREENS                 ** AGL139
+ANB006**  00006     MAR 11, 2005 KEN CHAU                            ** AGL139
+ANB006**            PR #08                                           ** AGL139
+ANB006**            ADD NEW FIELD - AGNCY-BR-ID                      ** AGL139
+ANB006**            REF: TLD_ING_ULUAT_PIR #624                      ** AGL139
+AAG022**  00006     JAN 07, 2005  NELSON CHO                         ** AGL139
+AAG022**            PR#02; ADD NEW CRITERIA FOR UPDATE AND RETRIEVAL ** AGL139
+AAG022**            OF SERVICING AGENT                               ** AGL139
+APR077**  00006     FEB 28, 2005 RAIN LIU                            ** AGL139
+APR077**            PR#12                                            ** AGL139
+APR077**            MULTICURRENCY MOD. FOR NB                        ** AGL139
+ANB025**  00006     APR 18, 2005 HENRY LIU                           ** AGL139
+ANB025**            PR #02                                           ** AGL139
+ANB025**            ADD CORPORATION ID AND CHANNEL CODE IN POLICY    ** AGL139
+ANB025**            RETRIEVE WHEN POLICY DISTRIBUTION CHANNEL IS WSM ** AGL139
+APA036**  00006     APR 21, 2005 RICHARD HU                          ** AGL139
+APA036**            PR #07                                           ** AGL139
+APA036**            ONLIINE INQUIRY OF TERMINATE MASTERS             ** AGL139
+APR088**  00007     JUL 29, 2005 RONALD CHEUNG                       ** AGL139
+APR088**            PR#8                                             ** AGL139
+APR088**            RESTRICT COVERAGE UPDATE DURING PREMIUM HOLIDAY  ** AGL139
+ANB006**  00007     JUN 13, 2005 KEN CHAU                            ** AGL139
+ANB006**            PR #27                                           ** AGL139
+ANB006**            ADD NEW FIELDS - REJECTION REASON CODE,          ** AGL139
+ANB006**            REJECTION REASON CONDITION CODE, NEGATIVE CODE,  ** AGL139
+ANB006**            REJECTION REQUEST DATE, REISSUE DATE,            ** AGL139
+ANB006**            REISSUE CANCEL DATE, REISSUE END DATE            ** AGL139
+ANB006**            REF: THD_UAT_IGM_UL_PIR #898                     ** AGL139
+ANB024**  00007     AUG 10, 2005 RAYMOND LEUNG                       ** AGL139
+ANB024**            PR#06                                            ** AGL139
+ANB024**            ADD REQUIRED PREMIUM BEFORE SETTLEMENT           ** AGL139
+ANB024**            REF: THD_PROD_IGM_PIR #199                       ** AGL139
+ANB024**  00007     AUG 24, 2005 RAYMOND LEUNG                       ** AGL139
+ANB024**            PR#06                                            ** AGL139
+ANB024**            SKIP REVISION 2.27                               ** AGL139
+ANB024**            REF: THD_PROD_IGM_PIR #199                       ** AGL139
+ANB024**  00007     AUG 24, 2005 RAYMOND LEUNG                       ** AGL139
+ANB024**            PR#06                                            ** AGL139
+ANB024**            RETROFITTING REVISION 2.27                       ** AGL139
+ANB024**            REF: THD_PROD_IGM_PIR #199                       ** AGL139
+ANB006**  00007     SEP 9, 2005 SHERRIE HAN                          ** AGL139
+ANB006**            PR #33                                           ** AGL139
+ANB006**            ADD LEAD CODE                                    ** AGL139
+ANB006**  00007     SEP 15, 2005 SHERRIE HAN                         ** AGL139
+ANB006**            PR #33                                           ** AGL139
+ANB006**            SKIP REVERSION 2.30                              ** AGL139
+AGL139**  AGL139    OCT 11, 2005 BRAD WU                             **
+AGL139**            INGENIUM MERGING (NS AND TH)                     **
+AGL139**            AGL116 AND APA060 ARE SAME TASK, USE AGL116      **
+ANB006**  00007     SEP 15, 2005 SHERRIE HAN                         ** AGL139
+ANB006**            PR #33                                           ** AGL139
+ANB006**            RETROFITTING REVISION 2.30                       ** AGL139
+ANB028**  00007     SEP 14, 2005 SENTHIL V                           ** AGL139
+ANB028**            PR #01, PR #2                                    ** AGL139
+ANB028**            NB APPLICATION ENTRY FOR BATCH UPLOAD ENHANCEMENT** AGL139
+ANB028**  00007     OCT 10, 2005 JASON ZHOU                          ** AGL139
+ANB028**            PR #2                                            ** AGL139
+ANB028**            SKIP REVISION 2.30                               ** AGL139
+ANB028**  00007     OCT 10, 2005 JASON ZHOU                          ** AGL139
+ANB028**            PR #2                                            ** AGL139
+ANB028**            RETROFITTING REVISION 2.30                       ** AGL139
+AAG024**  00008     OCT 13, 2005  NELSON CHO                         ** AGL139
+AAG024**            PR #06                                           ** AGL139
+AAG024**            ORIGINAL WRITING AGENT                           ** AGL139
+ANB028**  00009     NOV 03, 2005 SENTHIL V                           ** AGL139
+ANB028**            PR #01                                           ** AGL139
+ANB028**            DEFAULT CLIENT VERIFIED INDICATOR                ** AGL139
+ANB028**  00009     NOV 09, 2005 SENTHIL V                           ** AGL139
+ANB028**            PR #01                                           ** AGL139
+ANB028**            REMOVE CODE FOR DEFAULT CLIENT VERIFIED INDICATOR** AGL139
+AAG024**  00008     DEC 14, 2005  NELSON CHO                         ** AGL139
+AAG024**            SKIP VERSION 2.38 - AAG024 FOR PROD. PROMOTION   ** AGL139
+AGL139**  AGL139    DEC 21, 2005 BRAD WU                             **
+AGL139**            INGENIUM MERGING (NS AND TH)  2ND PHASE          **
+AAG024**  00008     JAN 24, 2006  NELSON CHO                         **
+AAG024**            RESTORE VERSION 2.38 - AAG024 FOR PROD. PROMOTION**
+APA061**  00008     NOV 15, 2005 HOLDEN ZHANG                        **
+APA061**            PR #05                                           **
+APA061**            ATTACH CHANNEL CODE TO ALL POLICIES              **
+APA061**            AT COVERAGE LEVEL                                **
+ACL013**  *****     FEB 13, 2006 CHARLIE WU                          **
+ACL013**            PR #01                                           **
+ACL013**            INCREASE ADDRESS TO 5 LINES                      **
+AGL149**  *****     MAR 16, 2006  JOE YANG                           **
+AGL149**            PR #03                                           **
+AGL149**            USING NAME TYPE & SEQNUM TO READ NAME            **
+ANB006**  *****     JUL 25, 2006  DANIEL WU                          **
+ANB006**            PIR REFERENCE: THD_PROD_SMRF_PIR #274            **
+ANB006**            PR #38                                           **
+ANB006**            ADD EXTERNAL REFERENCE TEXT                      **
+APA040**  *****     AUG 04, 2006 RAY ZHANG                           **
+APA040**            PR #01                                           **
+APA040**            ADD PAYOR BENEFIT RELATIONSHIP                   **
+APA040**            PIR REFERENCE : THD_UAT_IGM_UL_PIR #975          **
+APA070**  *****     FEB 21, 2006  ERIC CHAN                          **
+APA070**            PR #09                                           **
+APA070**            POSITIVE OPTION MODIFICATION                     **
+APA070**  *****     JUL 14, 2006  ERIC CHAN                          **
+APA070**            PR #09                                           **
+APA070**            CHECK POL STATUS FOR PO PREM INQUIRY             **
+APA070**            REF: THD_UAT_IGM_UL_PIR #1655                    **
+ANB006**  *****     SEP 06, 2006  PHYLLIS LAM                        **
+ANB006**            = 3.7                                            **
+AGL156**  *****     AUG 31, 2006  HEINZ WANG                         **
+AGL156**            WCVGS PERFORMANCE TUNING                         **
+APA040**  *****     OCT 09, 2006  JUSTIN SU                          **
+APA040**            = 3.10                                           **
+AAG008**  *****     AUG 21, 2006  KANITTHA P.                        **
+AAG008**            PIR REFERENCE: THD_PROD_IGM_PIR #499             **
+AAG008**            PR #03                                           **
+AAG008**            CHANGE AGENT INFORMATION ON NB UPDATE SCREEN     **
+AAG008**            FROM INPUT FIELS TO DISPLAY FIELD                **
+CFA001**  *****     AUG 13, 2007 SARAH MU                            **
+CFA001**            PR #2 OF FREE LOOK TRANSFER                      **
+CFA001**            SHOWING FUND ALLOCATION DATE IN POLICY INQUIRY   **
+CAC001**  *****     AUG 31, 2007 DONNY FENG                          **
+CAC001**            PR#6 EXTEND CHANNEL CODE AND CAMPAIGN CODE       **
+CAC001**  *****     SEP 21, 2007 DONNY FENG                          **
+CAC001**            PR#6 EXTEND CHANNEL CODE AND CAMPAIGN CODE       **
+CPA001**  *****    AUG 30, 2007  GARY HE                             ** 08300702
+CPA001**           PR #02                                            ** 08300702
+CPA001**           ADD OWNER INFO, INSURED INFO AND ADDRESS KEYS     ** 08300702
+CPA006**  *****     SEP 26, 2007 ERIC WU                             **
+CPA006**            PR #2                                            **
+CPA006**            POLICY BASIC INFORMATION INQUIRY                 **
+CPA001**  *****     NOV 20, 2007 GARY HE                             **
+CPA001**            PR #2                                            **
+CPA001**            PASS CHARACTER SET CODE TO 2440                  **
+CPA001**  *****     DEC 17, 2007 GARY HE                             **
+CPA001**            PR #2                                            **
+CPA001**            COMMENT CODE ASSIGNING TAX ID TO POLICY CLIENT   **
+CPA001**            MIR                                              **
+CPA001**  *****     DEC 11, 2007 ERIC WU                             ** 12110704
+CPA001**            PR #04                                           ** 12110704
+CPA001**            REPLACE IGM RELATIONSHIP DEFINITION              ** 12110704
+CPA001**  *****     JAN 11, 2008 GARY HE                             **
+CPA001**            PR #2                                            **
+CPA001**            RENAME SHIP-IND TO SHIP-CD                       **
+CPA001**  *****     JAN 15, 2008 ERIC WU                             **
+CPA001**            PR #4                                            **
+CPA001**            AGENT ID CONVERSION                              **
+CGL003**  *****     MAR 03, 2008  JOYIN SU                           **
+CGL003**            PR#23                                            **
+CGL003**            UPDATE POL-BILL-TO-DT-NUM BASE ON ISSUE DATE     **
+CPA001**  *****     MAR 24, 2008 GARY HE                             **
+CPA001**            PR #2                                            **
+CPA001**            FIX PHONE SEQ NUM DISPLAY PROBLEM                **
+CPR228**  *****     DEC 15, 2008 CLOUD SUN                           **
+CPR228**            PR #4                                            **
+CPR228**            NFO / PREMIUM HOLIDAY PROCESSING                 **
+CFA208**  *****     JAN 24, 2009  RONNIE WEN                         **
+CFA208**            PR #06                                           **
+CFA208**            ADD POL-UL-PRCES-DT, POL-UL-PTD-NUM,             **
+CFA208**            POL-UL-SHRT-AMT                                  **
+CPR203**  *****     SEP 24, 2008 REVAN SHEN                          **
+CPR203**            PR #01                                           **
+CPR203**            ADD NEXT LOAN INTEREST CAPITALIZE DATE           **
+CPR224**  *****     MAY 19, 2009  TANKY TIAN                         **
+CPR224**            PR #04                                           **
+CPR224**            POLICY EXTENSION TABLE CHANGES                   **
+CPR218**  *****     MAY 13, 2009 FEN LI                              **
+CPR218**            PR#2 NEW FIELDS ON POLICY EXTENSION TABLE        **
+CPR218**            ADD POL-WAV-STAT-CD, MAV-WAV-STRT-DT,            **
+CPR218**            PREM-WAV-STRT-DT                                 **
+CPR105**  *****     JAN 27, 2010 RAX WANG                            **
+CPR105**            PR #1                                            **
+CPR105**            ADD CONVERSION INDICATOR IN POLICY INQUIRY       **
+CPR105**            SCREEN                                           **
+CPR111**  *****     MARCH 26, 2010 JULIE LIU                         **
+CPR111**            PR# 01                                           **
+CPR111**            SERCHO201003005                                  **
+CPR111**            ADD CUSTOMER RISK SCORE FOR EACH POLICY          **
+CPR301**  *****     MAY 14, 2012 ANWAY CAI                           **
+CPR301**            PR# 07                                           **
+CPR301**            ADD POL_ANTY_OPT_CD, POL_ANTY_XCES_CD,           **
+CPR301**            IN POLICY ENQUIRY.                               **
+CPA301**  *****     MAY 31, 2012  ANWAY CAI                          ** 05311204
+CPA301**            PR #04                                           ** 05311204
+CPA301**            POLICY PLEDGE FLAG UPDATE                        ** 05311204
+CPR311**  *****     SEP 10, 2012  ANWAY CAI                          ** 09101201
+CPR311**            PR #01                                           ** 09101201
+CPR311**            PRODUCT SETUP FOR DCA PROCESS                    ** 09101201
+CPR316**  *****     MAR 07, 2013 DONTE CHEN                          **
+CPR316**            PR #05                                           **
+CPR316**            ENHANCE FOR READING AGENT RECORD                 **
+CBC109**  *****     MAY 02, 2013  RONNIE WEN                         **
+CBC109**            PR #01                                           **
+CBC109**            ADD NEW FIELD FOR CAMPAIGN ID                    **
+CPR133**  *****     FEB 24, 2014  DONTE CHEN                         **
+CPR133**            PR #02                                           **
+CPR133**            ADD NEW FIELD FOR POLICY MODAL PREMIUM (WAIVED)  **
+CPR133**  *****     FEB 26, 2014 DONTE CHEN                          **
+CPR133**            PR #01                                           **
+CPR133**            ADD NEW FIELD FOR EMBEDDED WAIVER                **
+CPR133** *****      MAY 04, 2014 DONTE CHEN                          **
+CPR133**            PR #12                                           **
+CPR133**            SIT DEFECT, RQM 1495:                            **
+CPR133**            FIX POLICY MODAL PREMIUM (WAIVED)                **
+CPR143**  *****     MAY 28, 2014 JOHN LIU                            **
+CPR143**            PR#02                                            **
+CPR143**            ADD NEW FIELDS FOR IER COUPON                    **
+CPR147**  *****     JAN 15, 2015 DONTE CHEN                          **
+CPR147**            PR #05                                           **
+CPR147**            IER COUPON START DATE ENHANCEMENT                **
+CPR148**  *****     MAR 20, 2015  JOHN LIU                           **
+CPR148**            PR #01                                           **
+CPR148**            SPUL ENHANCEMENT                                 **
+CPR177**  *****     NOV 13, 2018 DONTE CHEN                          **
+CPR177**            PR #02                                           **
+CPR177**            CLIENT ID CARD ENHANCEMENT                       **
+      *****************************************************************
       /
       **********************
        ENVIRONMENT DIVISION.
@@ -28,7 +432,7 @@
       /
        01  WS-WORKING-STORAGE.
            05  WS-BUS-FCN-ID                           PIC X(04).
-               88  WS-BUS-FCN-RETRIEVE                 VALUE '8000'.
+               88  WS-BUS-FCN-RETRIEVE                 VALUE '9527'.
            05  WS-PRIM-OWNER-IND                       PIC X(01).
                88  WS-PRIM-OWNER                       VALUE 'Y'.
                88  WS-NOT-PRIM-OWNER                   VALUE 'N'.
@@ -98,7 +502,7 @@ APA070     05  WS-POF-MPREM-AMT            PIC S9(13)V9(2) COMP-3.      02210609
 018633*                20  WS-HOLD-CLI-ID           PIC X(10).
 018633*                20  WS-HOLD-CLI-REL-TYP-CD   PIC X(01).
 018633*        10  FILLER                           PIC X(18).
-018633 COPY XCWLCOMM REPLACING '$VAR1' BY '8000'.
+018633 COPY XCWLCOMM REPLACING '$VAR1' BY '9527'.
 018633     15  LCOMM-CLI-REL-INFO.
 018633         20  FILLER                           PIC X(02).
 018633         20  LCOMM-CLI-TABLE-AREA.
@@ -337,7 +741,7 @@ ANB008       TO MIR-DV-MQ-CALL-SW.
                WHEN OTHER
       *MSG: INVALID FUNCTION ID - PROCESSING STOPPED
                     MOVE MIR-BUS-FCN-ID           TO WGLOB-MSG-PARM (1)
-                    MOVE 'CSOM8000'               TO WGLOB-MSG-PARM (2)
+                    MOVE 'CSOM9527'               TO WGLOB-MSG-PARM (2)
                     MOVE 'XS00000237'             TO WGLOB-MSG-REF-INFO
                     PERFORM  0260-1000-GENERATE-MESSAGE
                         THRU 0260-1000-GENERATE-MESSAGE-X
@@ -970,7 +1374,7 @@ ANB007
            MOVE RPOL-POL-DB-OPT-CD         TO MIR-POL-DB-OPT-CD.
            MOVE RPOL-POL-DIV-OPT-CD        TO MIR-POL-DIV-OPT-CD.
 APR061     MOVE RPOL-POL-DIV-XCES-CD       TO MIR-POL-DIV-XCES-CD.
-APR086     MOVE RPOL-POL-CPN-OPT-CD        TO MIR-POL-CPN-OPT-CD.       09527402
+APR086     MOVE RPOL-POL-CPN-OPT-CD        TO MIR-POL-CPN-OPT-CD.       09020402
 APR086     MOVE RPOL-POL-CPN-XCES-CD       TO MIR-POL-CPN-XCES-CD.      09020402
            MOVE RPOL-POL-ENHC-CHNG-DT      TO L1640-INTERNAL-DATE.
 020462*    PERFORM  1640-2000-INTERNAL-TO-EXT
@@ -2499,6 +2903,8 @@ CPA001     MOVE SPACES TO MIR-CLI-CNTCT-MAIL-NUM-G.                     08300702
            MOVE SPACES               TO MIR-CLI-BTH-DT-G.
            MOVE SPACES               TO MIR-CLI-TAX-ID-G.
 CPA001     MOVE SPACES TO MIR-CLI-ID-TYP-CD-G.                          08300702
+CPR177     MOVE SPACES TO MIR-CLI-TAX-2-ID-G.                           11131802
+CPR177     MOVE SPACES TO MIR-CLI-ID-TYP-2-CD-G.                        11131802
 CPA001     MOVE SPACES TO MIR-CLI-MARIT-STAT-CD-G.                      08300702
 CPA001     MOVE SPACES TO MIR-CLI-CITZ-CD-G.                            08300702
 CPA001     MOVE SPACES TO MIR-CLI-PERM-RES-IND-G.                       08300702
@@ -2657,6 +3063,10 @@ CPA001     MOVE RPOLC-CLI-TAX-ID TO                                     08300702
 CPA001          MIR-CLI-TAX-ID-T (WS-SUB).                              08300702
 CPA001     MOVE RPOLC-CLI-ID-TYP-CD TO                                  08300702
 CPA001          MIR-CLI-ID-TYP-CD-T (WS-SUB).                           08300702
+CPR177     MOVE RPOLC-CLI-TAX-2-ID TO                                   11131802
+CPR177          MIR-CLI-TAX-2-ID-T (WS-SUB).                            11131802
+CPR177     MOVE RPOLC-CLI-ID-TYP-2-CD TO                                11131802
+CPR177          MIR-CLI-ID-TYP-2-CD-T (WS-SUB).                         11131802
 CPA001     MOVE RPOLC-CLI-MARIT-STAT-CD TO                              08300702
 CPA001          MIR-CLI-MARIT-STAT-CD-T (WS-SUB).                       08300702
 CPA001     MOVE RPOLC-CLI-CITZ-CD TO                                    08300702
@@ -3670,6 +4080,8 @@ CPA001     MOVE SPACES TO MIR-INSRD-CLI-CELL-PHON-NUM-G.                08300702
 CPA001     MOVE SPACES TO MIR-INSRD-CLI-CNTCT-MAIL-NUM-G.               08300702
 CPA001     MOVE SPACES TO MIR-INSRD-CLI-TAX-ID-G.                       08300702
 CPA001     MOVE SPACES TO MIR-INSRD-CLI-ID-TYP-CD-G.                    08300702
+CPR177     MOVE SPACES TO MIR-INSRD-CLI-TAX-2-ID-G.                     11131802
+CPR177     MOVE SPACES TO MIR-INSRD-CLI-ID-TYP-2-CD-G.                  11131802
 CPA001     MOVE SPACES TO MIR-INSRD-CLI-MARIT-STAT-CD-G.                08300702
 CPA001     MOVE SPACES TO MIR-INSRD-CLI-CITZ-CD-G.                      08300702
 CPA001     MOVE SPACES TO MIR-INSRD-CLI-PERM-RES-IND-G.                 08300702
@@ -3807,6 +4219,10 @@ CPA001     MOVE RPOLC-CLI-TAX-ID                                        08300702
 CPA001       TO MIR-INSRD-CLI-TAX-ID-T (WS-SUB).                        08300702
 CPA001     MOVE RPOLC-CLI-ID-TYP-CD                                     08300702
 CPA001       TO MIR-INSRD-CLI-ID-TYP-CD-T (WS-SUB).                     08300702
+CPR177     MOVE RPOLC-CLI-TAX-2-ID                                      11131802
+CPR177       TO MIR-INSRD-CLI-TAX-2-ID-T (WS-SUB).                      11131802
+CPR177     MOVE RPOLC-CLI-ID-TYP-2-CD                                   11131802
+CPR177       TO MIR-INSRD-CLI-ID-TYP-2-CD-T (WS-SUB).                   11131802
 CPA001     MOVE RPOLC-CLI-MARIT-STAT-CD                                 08300702
 CPA001       TO MIR-INSRD-CLI-MARIT-STAT-CD-T (WS-SUB).                 08300702
 CPA001     MOVE RPOLC-CLI-CITZ-CD                                       08300702

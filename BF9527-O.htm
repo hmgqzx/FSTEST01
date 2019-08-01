@@ -1,3 +1,262 @@
+<!--
+* Converted to Pathfinder 3.0 on Jan 24, 2005 2:24:04 PM CST
+*
+*********************************************************************************
+*  (C) COPYRIGHT 2001 INSURANCE SOFTWARE SOLUTIONS CORP.  ALL RIGHTS RESERVED
+*********************************************************************************
+*  Component:   BF8000-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*          6.2      New for release 6.2
+*  013697  6.3      ROTH IRA / Educational IRA
+*  017150  6.3      Currency Scaling (6.1.2J)
+*  020453  6.4      Record Policy Settlement Options
+*  020463  6.4      Investor Profiles
+*  020467  6.4      Two Stage Autopay Processing
+*  020475  6.4      Death Benefit Guarantees and Riders
+*  020452  6.4      Foreign Content for RRSP Products
+*  021345  6.4      Correct stype from 'text' to 'date'
+*  ACL002  00002    JULY 31,2002 HOLDEN ZHANG
+*  ACL002           ADD CLIENT CLASSIFICATION(VIP) FIELD
+*  APR005  00002    JULY 31,2002 HOLDEN ZHANG
+*  APR005           ADD MODE FACTOR TYPE FIELD
+*  APR002  00002    JULY 31,2002 HOLDEN ZHANG
+*  APR002           ADD PREMIUM HOLIDAY INDICATOR,PREMIUM HOLIDAY
+*  APR002           STATUS FIELDS
+*  ANB007  00002    JULY 31, 2002 HOLDEN ZHANG
+*  ANB007           ADD INSURED APPLICATION NATURE,PAYOR APPLICATION
+*  ANB007           NATURE,POLICY CONTRACT DATE,INITIAL ADHOC TOP UP,
+*  ANB007           WITHHELD COMMISSION INDICATOR,POLICY ENTRY DATE,
+*  ANB007           INSURED HEALTH QUESTION YES,PAYOR HEALTH QUESTION
+*  ANB007           YES,EXTRA COMMISSION ELIGIBILITY,REISSUE
+*  ANB007           INDICATOR,SPECIAL QUOTATION INDICATOR,STATUS
+*  ANB007           REASON CODE,PAYMENT TYPE CODE,LAST CHEQUE
+*  ANB007           CLEARING DATE FIELDS
+*  ANB007  00002    Aug 7,2002 Sunpachai A.
+*  ANB007           NB Capture Editing
+*  AAG008  00002    25 Sep, 2002   Leon liu
+*  AAG008           Writing Agent
+*  AAG005  00002    OCT 21,2002 Holden Zhang
+*  AAG005           Servicing Agent Handling
+*  ANB007  00002    November 29, 2002 Phyllis Lam
+*  ANB007           Display Policy Inforce Date
+*  ANB007  00002    December 2, 2002 Phyllis Lam
+*  ANB007           Display NB Last Payment Date & revise label for Last Cheque
+*  ANB007            Clearing Date
+*  ANB007  00002    December 3, 2002 Phyllis Lam
+*  ANB007           Change label 'Last Cheque Clearing Date' to 'Previous
+*  ANB007            Cheque Clearing Date'
+*  ANB007  00002    December 5, 2002 Phyllis Lam
+*  ANB007           Change label on Application Complete Date
+*  APA006  00003    MAR 18, 2003 HOLDEN ZHANG
+*  APA006           POLICY RESTRICTION
+*  ANB013  00003    Apr 15, 2003        Rain Liu
+*  ANB013           change the column header from 'Relationship Type' to
+*  ANB013           'Bank Account'
+*  APA022  00003    JUN 09, 2003 TOBY LAM
+*  APA022           ENHANCED POLICY INQUIRY - LAPSE START DATE
+*  APA020  00003    MAY 26, 2003 Sunpachai A.
+*  APA020           Policy Suspend Indicator
+*  ANB021  00003    JUN 11, 2003  JERY WEI
+*  ANB021           Additional Phase I Enhancement
+*  AGL079  REL6.4   JULY 30, 2003  CATE HE
+*  AGL079           V6.3.1 THAI CHANGED RETROFIT TO V6.4
+*  AGL079  REL6.4   NOV  18, 2003  GLORIA CHEN
+*  AGL079           CORRECT THE DATE FORMAT
+*  BNB005  00003    NOV 25, 2003  MOSES MO
+*  BNB005           INTERFACE WITH FREELOOK
+*  APR053  00003    DEC 03, 2003  ROONGTIWA S.
+*  APR053           Add Free Look Transfer Date
+*  APA060  00004    DEC 11, 2003  ROONGTIWA S.
+*  APA060           Add Pending Fund Utitization Date
+*  BAG002  00004    DEC 29, 2003 GLORIA CHEN
+*  BAG002           SERVICING AGENT ON COMPLAINT POLICY
+*  APR051  00004    JAN 30, 2004 TIGER WANG
+*  APR051           ADD APL STOP RULE AND NFO RESTRICTION RULE
+*  ANB007  00004    APR 05, 2004  MOSES MO
+*  ANB007           DISPLAY INSURED WHO NOT SAME AS OWNER
+*  ANB007           AND REJECT REASON  (ST_PIR 111)
+*  ANB006  00003    JAN 14, 2004 CHAIANUNT
+*  ANB006           ADD NEW FILED ON NB CAPTURE SCREEN
+*  APR059  00003    JUN 29, 2004 ROONGTIWA S.
+*  APR059           Change field name 'APL stop months' to 'APL Counter'
+*  APR061  REL6.5   JUN 15, 2004  WILSON WANG
+*  APR061           EXCESS DIVIDEND OPTION
+*  APR086  00004    SEP 02, 2004  EVA CHAN
+*  APR086           PR #02
+*  APR086           EXCESS COUPON OPTION
+*  APR079  00004    NOV 26, 2004  KEITH WONG
+*  APR079           PR#1
+*  APR079           ADD DEFAULT NFO INDICATOR FOR PAID UP
+*  APR087  00004    DEC 01, 2004 KEN CHAU
+*  APR087           PR# 02
+*  APR087           ADD NEW FIELD - CONTEST MERGING POLICY
+*  ANB006  00004    NOV 01, 2004 JOHN CHEN                                      *
+*  ANB006           PR#20                                                       *
+*  ANB006           PACKAGE PLAN SUPPORT                                        *
+*  ANB006           PR#22                                                       *
+*  ANB006           NEW FIELDS ON NB CAPTURE SCREENS                            *
+*  ANB006  00004    FEB 01, 2005 PHYLLIS LAM
+*  ANB006           PR#22
+*  ANB006           FIX FIELD DISPLAY FOR CASH TRANSFER INDICATOR
+*  ANB006  00004    MAR 11, 2005 KEN CHAU
+*  ANB006           PR #08
+*  ANB006           ADD NEW FIELD - AGNCY-BR-ID
+*  ANB006           REF: TLD_ING_ULUAT_PIR #624
+*  ANB006  00004    APR 01, 2005  KELVIN CHAN                                   *
+*  ANB006           PR#13                                                       *
+*  ANB006           REF: TLD_ING_ULUAT_PIR#646                                  *
+*  ANB006           REMOVE CONTEST FIELD DISPLAY                                *
+*  ANB025  00004    APR 18, 2005  HENRY LIU                                     *
+*  ANB025           PR #02                                                      *
+*  ANB025           ADD CORPORATION ID AND CHANNEL CODE                         *
+*  ANB006  00005    JUN 13, 2005 KEN CHAU                                       *
+*  ANB006           PR #27                                                      *
+*  ANB006           ADD NEW FIELDS - REJECTION REASON CODE,                     *
+*  ANB006           REJECTION REASON CONDITION CODE, NEGATIVE CODE,             *
+*  ANB006           REJECTION REQUEST DATE, REISSUE DATE,                       *
+*  ANB006           REISSUE CANCEL DATE, REISSUE END DATE.                      *
+*  ANB006           MOVE END OF FREE LOOK DATE, FREE LOOK TRANSFER DATE.        *
+*  ANB006           REF: THD_UAT_IGM_UL_PIR #898                                *
+*  ANB006  00005    SEP 9, 2005  SHERRIE HAN                                    *
+*  ANB006           PR #33                                                      *
+*  ANB006           ADD LEAD CODE                                               *
+*  ANB006  00005    SEP 15, 2005  SHERRIE HAN                                   *
+*  ANB006           PR #33                                                      *
+*  ANB006           SKIP REVERSION 2.21                                         *
+*  ANB006  00005    SEP 15, 2005  SHERRIE HAN                                   *
+*  ANB006           PR #33                                                      *
+*  ANB006           RETROFITTING REVERSION 2.21                                 *
+*  ANB028  00005    SEP 14, 2005 SENTHIL V                                      *
+*  ANB028           REF : PR #01, PR #2                                         *
+*  ANB028           NB APPLICATION ENTRY FOR BATCH UPLOAD ENHANCEMENT           *
+*  ANB028  00005    OCT 10, 2005 JASON ZHOU                                     *
+*  ANB028           PR #2                                                       *
+*  ANB028           SKIP REVISION 2.21                                          *
+*  ANB028  00005    OCT 10, 2005 JASON ZHOU                                     *
+*  ANB028           PR #2                                                       *
+*  ANB028           RETROFITTING REVERSION 2.21                                 *
+*  ANB028  00005    OCT 12, 2005 Kelvin Chan                                    *
+*  ANB028           PR #2                                                       *
+*  ANB028           SKIP REVISION 2.21                                          *
+*  ANB028  00005    OCT 12, 2005 Kelvin Chan                                    *
+*  ANB028           PR #2                                                       *
+*  ANB028           Fit back REVISION 2.21                                      *
+*  ANB028  00005    OCT 13, 2005 JASON ZHOU                                     *
+*  ANB028           PR #2                                                       *
+*  ANB028           SKIP REVISION 2.21                                          *
+*  ANB028  00005    OCT 13, 2005 JASON ZHOU                                     *
+*  ANB028           PR #2                                                       *
+*  ANB028           Fit back REVISION 2.21                                      *
+*  AAG024  00006    OCT 11, 2005  NELSON CHO                                    *
+*  AAG024           PR #06                                                      *
+*  AAG024           ORIGINAL WRITING AGENT                                      *
+*  APA061  00005    NOV 15, 2005 HOLDEN ZHANG                                   *
+*  APA061           PR #05                                                      *
+*  APA061           ATTACH CHANNEL CODE TO ALL POLICIES AT COVERAGE LEVEL       *
+*  APA064  00006    OCT 12, 2005 MICHAEL LAM                                    *
+*  APA064           PR #1                                                       *
+*  APA064           ADD PACKAGE NAME                                            *
+*  APA064           PIR REFERENCE : THD_UAT_IGM_UL_PIR 1421                     *
+*  ANB006  *****    JUL 25, 2006  DANIEL WU                                     *
+*  ANB006           PIR REFERENCE: THD_PROD_SMRF_PIR #274                       *
+*  ANB006           PR #38                                                      *
+*  ANB006           ADD EXTERNAL REFERENCE TEXT                                 *
+*  APA040  *****    JUL 06, 2006 RAY ZHANG                                      *
+*  APA040           PR #01                                                      *
+*  APA040           ADD PAYOR BENEFIT RELATIONSHIP                              *
+*  APA040           PIR REFERENCE : THD_UAT_IGM_UL_PIR #975                     *
+*  APA070  *****    FEB 21, 2006  VERA SONG                                     *
+*  APA070           PR #09                                                      *
+*  APA070           POSITIVE OPTION MODIFICATION                                *
+*  ANB006  *****    SEP 06, 2006  PHYLLIS LAM                                   *
+*  ANB006           = 3.4                                                       *
+*  APA040  *****    OCT 09, 2006  JUSTIN SU                                     *
+*  APA040           = 3.6                                                       *
+*  CFA001  *****    AUG 15, 2007  SARAH MU                                      *
+*  CFA001           FUND ALLOCATION DATE                                        *
+*  CPA001  *****    AUG 30, 2007  GARY HE                                       *
+*  CPA001           PR #02                                                      *
+*  CPA001           ADD OWNER INFO, INSURED INFO AND ADDRESS KEYS               *
+*  CPA006  *****    SEP 26, 2007  ERIC WU                                       *
+*  CPA006           PR #2                                                       *
+*  CPA006           POLICY BASIC INFORMATION INQUIRY                            *
+*  CPA001  *****    DEC 24, 2007 GARY HE                                        *
+*  CPA001           PR #2                                                       *
+*  CPA001           MODIFY SHIP FROM INDICATOR TO SELECTION                     *
+*  CPA001  *****    JAN 01, 2008 GARY HE                                        *
+*  CPA001           PR #2                                                       *
+*  CPA001           RENAME SHIP-IND TO SHIP-CD                                  *
+*  CFA208  *****    JAN 24, 2009 RONNIE WEN                                     *
+*  CFA208           PR #06                                                      *
+*  CFA208           ADD MONTHIVERSARY INFORMATION                               *
+*  CPR203  *****    SEP 24, 2008 REVAN SHEN                                     *
+*  CPR203           PR #01                                                      *
+*  CPR203           ADD NEXT LOAN INTEREST CAPITALIZE DATE                      *
+*  CPR224  *****    MAY 19, 2009  TANKY TIAN                                    *
+*  CPR224           PR #04                                                      *
+*  CPR224           POLICY EXTENSION TABLE CHANGES                              *
+*  CPR218  *****    MAY 13, 2009 FEN LI                                         *
+*  CPR218           PR#2 NEW FIELDS ON POLICY EXTENSION TABLE                   *
+*  CPR218           ADD POL-WAV-STAT-CD, MAV-WAV-STRT-DT, PREM-WAV-STRT-DT      *
+*  CPR232  *****    AUG 11, 2009  MARK YU                                       *
+*  CPR232           PR#1                                                        *
+*  CPR232           REQUEST PREMIUM HOLIDAY WITH RIDER PAYMENT                  *
+*  CPR105  *****    JAN 27, 2010  RAX WANG                                      *
+*  CPR105           PR#1                                                        *
+*  CPR105           ADD CONVERSION INDICATOR IN POLICY INQUIRY SCREEN           *
+*  CPR111  *****    MARCH 26, 2010 JULIE LIU                                    *
+*  CPR111           PR# 01                                                      *
+*  CPR111           SERCHO201003005                                             *
+*  CPR111           ADD CUSTOMER RISK SCORE FOR EACH POLICY                     *
+*  CPR301  *****    MAY 14, 2012 ANWAY CAI                                      *
+*  CPR301           PR# 07                                                      *
+*  CPR301           ADD POL-ANTY-OPT-CD, POL-ANTY-XCES-CD,                      *
+*  CPR301           IN POLICY OPTION.                                           *
+*  CPA301  *****    MAY 31, 2012 ANWAY CAI                                      *
+*  CPA301           PR# 04                                                      *
+*  CPA301           POLICY PLEDGE FLAG UPDATE                                   *
+*  CPR311  *****    SEP 10, 2012 ANWAY CAI                                      *
+*  CPR311           PR# 01                                                      *
+*  CPR311           PRODUCT SETUP FOR DCA PROCESS                               *
+*  CBC109  *****    MAY 02, 2013 RONNIE WEN                                     *
+*  CBC109           PR #01                                                      *
+*  CBC109           ADD NEW FIELD FOR CAMPAIGN ID                               *
+*  CPR133  *****    FEB 24, 2014 DONTE CHEN                                     *
+*  CPR133           PR #02                                                      *
+*  CPR133           ADD NEW FIELD FOR POLICY MODAL PREMIUM (WAIVED)             *
+*  CPR133  *****    FEB 26, 2014 DONTE CHEN                                     *
+*  CPR133           PR #01                                                      *
+*  CPR133           ADD NEW FIELD FOR EMBEDDED WAIVER                           *
+*  CPR143  *****    MAY 28, 2014 JOHN LIU                                       *
+*  CPR143           PR#02                                                       *
+*  CPR143           ADD NEW FIELD FOR IER COUPON                                *
+*  CPR143  *****    SEP 24, 2014 JOHN LIU                                       *
+*  CPR143           PR#21                                                       *
+*  CPR143           UAT DEFECT TRACK NOTIFICATION - 00004 IER COUPON START DATE *
+*  CPR147  *****    JAN 15, 2015 DONTE CHEN                                     *
+*  CPR147           PR#05                                                       *
+*  CPR147           IER COUPON START DATE ENHANCEMENT                           *
+*  CPR148  *****    MAR 20, 2015 JOHN LIU                                       *
+*  CPR148           PR #01                                                      *
+*  CPR148           SPUL ENHANCEMENT                                            *
+*  CPR148  *****    MAY 08, 2015  JOHN LIU                                      *
+*  CPR148           PR #01                                                      *
+*  CPR148           SPUL ENHANCEMENT ISSUE CHANGE                               *
+*  CPR149  *****    JUN 17, 2015  MICHAEL OU                                    *
+*  CPR149           PR #04                                                      *
+*  CPR149           JOINT PB ADD RELATIONSHIP TO PRIMARY INSURED                *
+*  CPR149  *****    JUL 10, 2015  MICHAEL OU                                    *
+*  CPR149           PR #04                                                      *
+*  CPR149           CHANGE COLUMN POSITION                                      *
+*  CPR177  *****    NOV 13, 2018 DONTE CHEN                                     *
+*  CPR177           PR #02                                                      *
+*  CPR177           CLIENT ID CARD ENHANCEMENT                                  *
+*********************************************************************************
+ -->
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -8,6 +267,14 @@
         <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
             <br />
             <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">Owner Name:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="3">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
                 <tr>
                     <td class="celldisplaykeylabel">
                         <label for="MIR-POL-ID-BASE">Policy ID:</label>
@@ -24,10 +291,13 @@
                 </tr>
                 <tr>
                     <td class="celldisplaykeylabel">
-                        <label for="MIR-POL-ISS-EFF-DT">Effective Date:</label>
+                        <label for="MIR-POL-CSTAT-CD">Current Policy Status:</label>
                     </td>
                     <td class="celldisplaykey">
-                        <span id="MIR-POL-ISS-EFF-DT" stype="Date" displayonly="yes">MIR-POL-CSTAT-CD</span>
+                        <span id="MIR-POL-CSTAT-CD" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD</span>
+<!--ANB007-->
+                        <span id="MIR-POL-REJ-REASN-CD-TXT" stype="Text" displayonly="yes">MIR-POL-REJ-REASN-CD-TXT</span>
+<!--/ANB007-->
                     </td>
                     <td class="celldisplaykeylabel">
                         <label for="MIR-POL-CVG-REC-CTR">Number of Coverages:</label>
@@ -38,93 +308,3428 @@
                 </tr>
                 <tr>
                     <td class="celldisplaykeylabel">
-                        <label for="MIR-POL-CSTAT-CD">Policy Status:</label>
+                        <label for="MIR-PLAN-ID">Product Name:</label>
                     </td>
-                    <td class="celldisplaykey">
-                        <span id="MIR-POL-CSTAT-CD" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD</span>
-<!--ANB007-->
-                        <span id="MIR-POL-REJ-REASN-CD-TXT" stype="Text" displayonly="yes">MIR-POL-REJ-REASN-CD-TXT</span>
-<!--/ANB007-->
-                    </td>
-                    <td class="celldisplaykeylabel">
-                        <label for="MIR-APP-FORM-TYP-ID">Policy Type:</label>
-                    </td>
-                    <td class="celldisplaykey">
-                        <span id="MIR-APP-FORM-TYP-ID" stype="Text" displayonly="yes">MIR-POL-CVG-REC-CTR</span>
+                    <td class="celldisplaykey" colspan="3">
+                        <span id="MIR-PLAN-ID" stype="Text" displayonly="yes">MIR-PLAN-ID</span>
                     </td>
                 </tr>
                 <tr>
                     <td class="celldisplaykeylabel">
-                        <label for="MIR-POL-BILL-MODE-CD">Bill Mode:</label>
+                        <label for="MIR-POL-GRS-APREM-AMT"> Gross Annual Premium:</label>
                     </td>
                     <td class="celldisplaykey">
-                        <span id="MIR-POL-BILL-MODE-CD" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-POL-GRS-APREM-AMT</span>
+                        <span id="MIR-POL-GRS-APREM-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-POL-GRS-APREM-AMT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-MPREM-AMT">Modal Premium:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-MPREM-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-POL-MPREM-AMT</span>
                     </td>
                 </tr>
-                        </table>
+<!--APA070 - 02210609-->
+                <tr>
+                    <td class="celldisplaykeylabel">
+                    <label for="MIR-POF-APREM-AMT">Gross Annual Offer Premium:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                    <span id="MIR-POF-APREM-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-POF-APREM-AMT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POF-MPREM-AMT">Modal Offer Premium:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POF-MPREM-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-POF-MPREM-AMT</span>
+                    </td>
+                </tr>
+<!--/APA070 - 02210609-->
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-PD-TO-DT-NUM">Policy Paid to Date:</label>
+                    </td>
+<!--6.4 - Correct stype from 'text' to 'date'-->
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-PD-TO-DT-NUM" stype="Date" displayonly="yes">MIR-POL-PD-TO-DT-NUM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-MPREM-DSCNT-AMT">Mode Premium Discount Amount:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-MPREM-DSCNT-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-MPREM-DSCNT-AMT</span>
+                    </td>
+                </tr>
+<!--APR002-->
+               <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CSTAT-REASN-CD">Policy Status Reason Code :</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CSTAT-REASN-CD" stype="Text" displayonly="yes">MIR-POL-CSTAT-REASN-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-PREM-HLDY-STAT-CD">Premium Holiday Status:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-PREM-HLDY-STAT-CD" stype="Text" displayonly="yes">MIR-PREM-HLDY-STAT-CD</span>
+                    </td>
+
+                </tr>
 <!--/APR002-->
-
-
+<!--APA022-->
+               <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-LAPSE-START-DT">Lapse Start Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+<!--AGL079
+                        <span id="MIR-LAPSE-START-DT" stype="Text" displayonly="yes">MIR-LAPSE-START-DT</span>
+-->
+<!--AGL079-->
+                        <span id="MIR-LAPSE-START-DT" stype="Date" displayonly="yes">MIR-LAPSE-START-DT</span>
+<!--/AGL079-->
+                    </td>
+<!--CPA006 - 09290702
+                    <td class="celldisplaykeylabel">
+                    </td>
+                    <td class="celldisplaykey">
+                    </td>
+-->
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-PREV-ANNV-DUR">Policy Duration:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-PREV-ANNV-DUR" stype="Number" elength="3" decimals="0" displayonly="yes">MIR-POL-PREV-ANNV-DUR</span>
+                    </td>
+<!--CPA006 - 09290702 -->
+                </tr>
+<!--CPR111 - 03261001 -->
+               <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CUST-RSK-SCORE">Customer Risk Score:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CUST-RSK-SCORE" stype="Number" elength="4" decimals="0" displayonly="yes">MIR-CUST-RSK-SCORE</span>
+                    </td>
+<!--CBC109 - 05021301 -->
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CAMP-ID">Campaign ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CAMP-ID" stype="Text" elength="10" displayonly="yes">MIR-POL-CAMP-ID</span>
+                    </td>
+<!--/CBC109 - 05021301 -->
+                </tr>
+<!--/CPR111 - 03261001 -->
+<!--CPR133 - 02241402 -->
+               <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-MPREM-WAV-AMT">Modal Premium (Waived):</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-MPREM-WAV-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-POL-MPREM-WAV-AMT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                    </td>
+                    <td class="celldisplaykey">
+                    </td>
+                </tr>
+<!--/CPR133 - 02241402 -->
 <!--/APA022-->
+            </table>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#ApplicationInformation">Application Information</a>
+                        </td>
+<!--CFA208 - 01240906-->
+                        <td class="cellanchors">
+                            <a href="#MonthiversaryInformation">Monthiversary Information</a>
+                        </td>
+<!--/CFA208 - 01230906-->
+<!--CPR218 - 05130902-->
+                        <td class="cellanchors">
+                            <a href="#WaiverProcessingInformation">Waiver Processing Information</a>
+                        </td>
+<!--/CPR218 - 05130902-->
+                        <td class="cellanchors">
+                            <a href="#ServicingAgentInformation">Servicing Agent</a>
+                        </td>
+<!--BAG002-->
+                        <td class="cellanchors">
+                            <a href="#AgentInformation">Agent Information</a>
+                        </td>
+<!--/BAG002-->
+                        <td class="cellanchors">
+                            <a href="#OwnerRelationships">Owner</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#OtherRelationships">Other Relationships</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#BillingInformation">Billing</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#SFBInformation">SFB Billing</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#RestrictBillInformation">Restrict Billing Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#NonTraditionalOptions">Non-Traditional Options</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#AnnuityRRIFLIFInformation">Annuity</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#PolicyOptions">Policy Options</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#DeathBenefitGuarantees">Death Benefit Guarantees</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#DisabilityClaimPayments">Disability Claim Payments</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#RegistrationInformation">Registration</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#TaxInformation">Tax</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#ProcessingInformation">Processing</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <table class="tabledisplay" >
+                <tr>
+                    <td class="celldisplayheading" colspan="4" height="18">
+                        <a name="BasicInformation">Basic Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" >
+                        <label for="MIR-POL-CTRY-CD">Country of Issue Location:</label>
+                    </td>
+                    <td class="celldisplay" >
+                        <span id="MIR-POL-CTRY-CD" stype="Text" displayonly="yes">MIR-POL-CTRY-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" >
+                        <label for="MIR-POL-CRCY-CD">Currency Used for Balances:</label>
+                    </td>
+                    <td class="celldisplay" >
+                        <span id="MIR-POL-CRCY-CD" stype="Text" displayonly="yes">MIR-POL-CRCY-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" >
+                        <label for="MIR-POL-ISS-LOC-CD">Issue Location:</label>
+                    </td>
+                    <td class="celldisplay" >
+                        <span id="MIR-POL-ISS-LOC-CD" stype="Text" displayonly="yes">MIR-POL-ISS-LOC-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" >
+                        <label for="MIR-CLI-CRNT-LOC-CD">Client's Current Location:</label>
+                    </td>
+                    <td class="celldisplay" >
+                        <span id="MIR-CLI-CRNT-LOC-CD" stype="Text" displayonly="yes">MIR-CLI-CRNT-LOC-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" >
+                        <label for="MIR-SBSDRY-CO-ID">Sub Company:</label>
+                    </td>
+                    <td class="celldisplay" >
+                        <span id="MIR-SBSDRY-CO-ID" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID</span>
+                    </td>
+                    <td class="celldisplaylabel" >
+                        <label for="MIR-POL-INS-PURP-CD">Purpose of Insurance:</label>
+                    </td>
+                    <td class="celldisplay" >
+                        <span id="MIR-POL-INS-PURP-CD" stype="Text" displayonly="yes">MIR-POL-INS-PURP-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" >
+                        <label for="MIR-POL-APP-SIGN-DT">Application Signed Date:</label>
+                    </td>
+                    <td class="celldisplay" >
+                        <span id="MIR-POL-APP-SIGN-DT" stype="Date" displayonly="yes">MIR-POL-APP-SIGN-DT</span>
+                    </td>
+                    <td class="celldisplaylabel" >
+                        <label for="MIR-POL-APP-SIGN-IND">Application
+      Signatures Reviewed and Accepted:</label>
+                    </td>
+                    <td class="celldisplay" >
+                        <span id="MIR-POL-APP-SIGN-IND" stype="Text" displayonly="yes">MIR-POL-APP-SIGN-IND</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" >
+                        <label for="MIR-POL-APP-RECV-DT">Application Received Date:</label>
+                    </td>
+                    <td class="celldisplay" >
+                        <span id="MIR-POL-APP-RECV-DT" stype="Date" displayonly="yes">MIR-POL-APP-RECV-DT</span>
+                    </td>
+                    <td class="celldisplaylabel" >
+                        <label for="MIR-POL-MIB-SIGN-CD">MIB Signature Received:</label>
+                    </td>
+                    <td class="celldisplay" >
+                        <span id="MIR-POL-MIB-SIGN-CD" stype="Text" displayonly="yes">MIR-POL-MIB-SIGN-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" >
+                        <label for="MIR-POL-ISS-EFF-DT">Policy Issue Date:</label>
+                    </td>
+                    <td class="celldisplay" >
+                        <span id="MIR-POL-ISS-EFF-DT" stype="Date" displayonly="yes">MIR-POL-ISS-EFF-DT</span>
+                    </td>
+                    <td class="celldisplaylabel" >
+                        <label for="MIR-POL-ISS-DT-TYP-CD">Issue Date
+      Type:</label>
+                    </td>
+                    <td class="celldisplay" >
+                        <span id="MIR-POL-ISS-DT-TYP-CD" stype="Text" displayonly="yes">MIR-POL-ISS-DT-TYP-CD</span>
+                    </td>
+                </tr>
+                <tr>
+<!--Functional 20463 - Added field for investor profile display-->
+                    <td class="celldisplaylabel" >
+                        <label for="MIR-PRFL-ID">Investor Profile ID:</label>
+                    </td>
+                    <td class="celldisplay" >
+                        <span id="MIR-PRFL-ID" stype="Text" displayonly="yes">MIR-PRFL-ID</span>
+                    </td>
+<!-- CPR105 - 01271001                    <td class="celldisplaylabel" ></td>
+                                          <td class="celldisplay" ></td>
+-->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-CNVR-IND">ILP Conversion Indicator:</label>
+                    </td>
+                    <td class="celldisplay" >
+                       <input type="checkbox" name="MIR-POL-CNVR-IND" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+<!-- /CPR105 - 01271001 -->
+                </tr>
+<!--ANB007-->
+                <tr>
+                   <td class="celldisplaylabel" >
+                       <label for="MIR-POL-CNTRCT-DT">Contract Date:</label>
+                   </td>
+                   <td class="celldisplay" >
+                       <span id="MIR-POL-CNTRCT-DT" stype="Date" displayonly="yes">MIR-POL-CNTRCT-DT</span>
+                   </td>
+<!--ANB007
+                   <td class="celldisplaylabel" >
+                   </td>
+                   <td class="celldisplay" >
+                   </td>
+-->
+<!--ANB007-->
+                   <td class="celldisplaylabel" >
+                       <label for="MIR-POL-APP-CMPLT-DT">Issue Date:</label>
+                   </td>
+                   <td class="celldisplay" >
+                       <span id="MIR-POL-APP-CMPLT-DT" stype="Date" displayonly="yes">MIR-POL-APP-CMPLT-DT</span>
+                   </td>
+<!--ANB007-->
+                 </tr>
+                 <tr>
+                   <td class="celldisplaylabel" >
+                       <label for="MIR-POL-ENTR-DT">Entry Date:</label>
+                   </td>
+                   <td class="celldisplay" >
+                       <span id="MIR-POL-ENTR-DT" stype="Date" displayonly="yes">MIR-POL-ENTR-DT</span>
+                   </td>
+                   <td class="celldisplaylabel" >
+                       <!--ANB007-->
+                       <!--<label for="MIR-PREV-CHQ-CLR-DT">Last Payment Date:</label>-->
+                       <label for="MIR-NB-FINAL-PMT-DT">Last Payment Date:</label>
+                       <!--/ANB007-->
+                   </td>
+                   <td class="celldisplay" >
+                       <!--ANB007-->
+                       <!--<span id="MIR-PREV-CHQ-CLR-DT" stype="Date" displayonly="yes">MIR-PREV-CHQ-CLR-DT</span>-->
+                       <span id="MIR-NB-FINAL-PMT-DT" stype="Date" displayonly="yes">MIR-NB-FINAL-PMT-DT</span>
+                       <!--/ANB007-->
+                   </td>
+                 </tr>
+<!--ANB007-->
+                 <tr>
+                   <td class="celldisplaylabel" >
+                       <label for="MIR-POL-INFC-DT">Inforce Date:</label>
+                   </td>
+                   <td class="celldisplay" >
+                       <span id="MIR-POL-INFC-DT" stype="Date" displayonly="yes">MIR-POL-INFC-DT</span>
+                   </td>
+                   <td class="celldisplaylabel" >
+                       <!--ANB007-->
+                       <!--ANB007<label for="MIR-PREV-CHQ-CLR-DT">Last Cheque Clearing Date:</label>-->
+                       <label for="MIR-PREV-CHQ-CLR-DT">Previous Cheque Clearing Date:</label>
+                       <!--/ANB007-->
+                   </td>
+                   <td class="celldisplay" >
+                       <!--ANB007-->
+                       <span id="MIR-PREV-CHQ-CLR-DT" stype="Date" displayonly="yes">MIR-PREV-CHQ-CLR-DT</span>
+                       <!--/ANB007-->
+                   </td>
+                 </tr>
+<!--/ANB007-->
+<!--/ANB007-->
+<!--APA006-->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-RESTRICT-CD-B">Bankruptcy:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-RESTRICT-CD-B" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-RESTRICT-CD-A">Absolute Assignment:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-RESTRICT-CD-A" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-RESTRICT-CD-S">Special Quotation:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-RESTRICT-CD-S" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-RESTRICT-CD-I">Irrevocable Beneficiary:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-RESTRICT-CD-I" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+<!--BNB005-->
+<!-- CFA001 - 08150702 -->
+                <tr>
+                    <td class="celldisplaylabel" >
+                        <label for="MIR-POL-ACK-SIGN-DT">Acknowledgement Sign Date:</label>
+                    </td>
+                    <td class="celldisplay" >
+                        <span id="MIR-POL-ACK-SIGN-DT" stype="Date" displayonly="yes">MIR-POL-ACK-SIGN-DT</span>
+                    </td>
+                    <td class="celldisplaylabel" >
+                        <label for="MIR-POL-ACK-RECV-DT">Acknowledgement Receive Date:</label>
+                    </td>
+                    <td class="celldisplay" >
+                        <span id="MIR-POL-ACK-RECV-DT" stype="Date" displayonly="yes">MIR-POL-ACK-RECV-DT</span>
+                    </td>
+                </tr>
+<!-- /CFA001 - 08150702 -->
+                <tr>
+                    <td class="celldisplaylabel">
+<!--CFA001                        <label for="MIR-POL-RECV-DT">Policy Receive Date:</label>-->
+                        <label for="MIR-POL-PIL-IND">Immediate Investment Indicator:</label>
+<!--/CFA001-->
+                    </td>
+                   <td class="celldisplay" >
+<!--CFA001                       <span id="MIR-POL-RECV-DT" stype="Date" displayonly="yes">MIR-POL-RECV-DT</span>-->
+                       <input type="checkbox" name="MIR-POL-PIL-IND" stype="Indicator" value="Y" disabled="yes"/>
+<!--CFA001-->
+                   </td>
+                   <td class="celldisplaylabel">
+<!--CFA001-->
+                        <label for="MIR-POL-FND-ALLOC-DT">Initial Fund Allocation Date:</label>
+<!--/CFA001-->
+                   </td>
+                   <td class="celldisplay">
+<!--CFA001-->
+                       <span id="MIR-POL-FND-ALLOC-DT" stype="Date" displayonly="yes">MIR-POL-FND-ALLOC-DT</span>
+<!--/CFA001-->
+                   </td>
+                </tr>
+<!--/BNB005-->
+<!--/APA006-->
+<!-- ANB006 - 06130527 -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-FREE-LK-END-DT">End of Free Look Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-FREE-LK-END-DT" stype="Date" displayonly="yes">MIR-POL-FREE-LK-END-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-FREE-LK-XFER-DT">Free Look Transfer Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-FREE-LK-XFER-DT" stype="Date" displayonly="yes">MIR-POL-FREE-LK-XFER-DT</span>
+                    </td>
+                </tr>
+<!-- /ANB006 - 06130527 -->
+<!-- CPR311 - 09101201 -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-DCA-IND">Parking Fund Option:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-POL-DCA-IND" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay"></td>
+                </tr>
+<!-- /CPR311 - 09101201 -->
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="ApplicationInformation">Application Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-OPTL-CD">Key/Optional Status:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-OPTL-CD" stype="Text" displayonly="yes">MIR-POL-OPTL-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay"></td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CONN-OPTL-POL-ID-BASE">Optional Policy ID:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CONN-OPTL-POL-ID-BASE" stype="Text" displayonly="yes">MIR-CONN-OPTL-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CONN-OPTL-POL-ID-SFX">Optional Policy Suffix:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CONN-OPTL-POL-ID-SFX" stype="Text" displayonly="yes">MIR-CONN-OPTL-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-USER-ID">Pre-Assigned
+      Underwriter:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-USER-ID" stype="Text" displayonly="yes">MIR-USER-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-RUSH-IND">High-priority
+      Processing:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-RUSH-IND" stype="Text" displayonly="yes">MIR-POL-RUSH-IND</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-UNMTCH-MAIL-IND">Unmatched Mail:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-UNMTCH-MAIL-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-SUPRES-ISS-IND">Suppress
+      automatic Issue/Settle processing:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-POL-SUPRES-ISS-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LINK-POL-ISS-IND"> Linked
+      Policy:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-LINK-POL-ISS-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-CNFD-IND">Policy has been
+      designated as Confidential:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-POL-CNFD-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-APP-FORM-ID">Application Form ID:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-APP-FORM-ID" stype="Text" displayonly="yes">MIR-POL-APP-FORM-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-APP-FORM-TYP-ID">Application Form Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-APP-FORM-TYP-ID" stype="Text" displayonly="yes">MIR-APP-FORM-TYP-ID</span>
+                    </td>
+                </tr>
+<!-- ANB006 - 11250420 -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PROD-TYP-CD">Product Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PROD-TYP-CD" stype="Text" displayonly="yes">MIR-PROD-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DSTRB-CHNL-CD">Channel:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DSTRB-CHNL-CD" stype="Text" displayonly="yes">MIR-DSTRB-CHNL-CD</span>
+                    </td>
+                </tr>
+<!-- /ANB006 - 11250420 -->
+<!-- APA064 - 10120501 -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PKG-PLAN-NM-CD">Package Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PKG-PLAN-NM-CD" stype="Text" displayonly="yes">MIR-PKG-PLAN-NM-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                    </td>
+                    <td class="celldisplay">
+                    </td>
+                </tr>
+<!-- /APA064 - 10120501 -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-APP-CTR">Application Counter:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-APP-CTR" stype="Text" displayonly="yes">MIR-POL-APP-CTR</span>
+                    </td>
+<!--ANB007
+                    <td class="celldisplaylabel">
+                    </td>
+                    <td class="celldisplay">
+                    </td>
+/ANB007-->
+<!--ANB007-->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-HLD-COMM-IND">Hold Commission:</label>
+                    </td>
+                    <td class="celldisplay">
+                         <input type="checkbox" name="MIR-POL-HLD-COMM-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+<!--/ANB007-->
+                </tr>
+<!--ANB007-->
+                <tr>
+                    <td class="celldisplaylabel">
+                    </td>
+                    <td class="celldisplay">
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-XTRA-COMM-ELIG-CD">Extra Commission Eligibility:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-XTRA-COMM-ELIG-CD" stype="Text" displayonly="yes">MIR-XTRA-COMM-ELIG-CD</span>
+                    </td>
+                </tr>
+<!--/NB007-->
+<!--ANB007-->
+                <tr>
+                    <td class="celldisplaylabel">
+<!-- CPA001 - 08300702
+                        <label for="MIR-INSRD-APP-MEDIC-CD">Insured Application Nature: </label>
+-->
+                        <label for="MIR-INSRD-APP-MEDIC-CD">Medical code: </label>
+<!-- /CPA001 - 08300702 -->
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-APP-MEDIC-CD" stype="Text" displayonly="yes">MIR-INSRD-APP-MEDIC-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INSRD-HLTHANSWR-IND">Insured Any Health Question Answered Yes:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-HLTHANSWR-IND" stype="Text" displayonly="yes">MIR-INSRD-HLTHANSWR-IND</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PAYR-APP-MEDIC-CD">Payor Application Nature: </label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PAYR-APP-MEDIC-CD" stype="Text" displayonly="yes">MIR-PAYR-APP-MEDIC-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PAYR-HLTHANSWR-IND">Payor Any Health Question Answered Yes:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PAYR-HLTHANSWR-IND" stype="Text" displayonly="yes">MIR-PAYR-HLTHANSWR-IND</span>
+                    </td>
+                </tr>
+<!--ANB006-->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-INIT-PREM-DED-IND">Initial Premium Deduct Agent:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-INIT-PREM-DED-IND" stype="Text" displayonly="yes">MIR-POL-INIT-PREM-DED-IND</span>
+                    </td>
+<!-- ANB006 - 04010513
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-CONTEST-IND">Policy Contest Indicator:</label>
+                    </td>
+                    <td class="celldisplay">
+                         <input type="checkbox" name="MIR-POL-CONTEST-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+    /ANB006 - 04010513 -->
+<!--  ANB006 - 04010513 -->
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplaylabel" />
+<!-- /ANB006 - 04010513 -->
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-EGP-IND">EGP Policy:</label>
+                    </td>
+                    <td class="celldisplay">
+                         <input type="checkbox" name="MIR-POL-EGP-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel">
+<!-- APR087 - 12010402 -->
+                        <label for="MIR-CONTEST-MRG-POL-ID">Contest Merging Policy:</label>
+<!-- /APR087 - 12010402 -->
+                    </td>
+                    <td class="celldisplay">
+<!-- APR087 - 12010402 -->
+                        <span id="MIR-CONTEST-MRG-POL-ID" stype="Text" displayonly="yes">MIR-CONTEST-MRG-POL-ID</span>
+<!-- /APR087 - 12010402 -->
+                    </td>
+<!-- ANB006 - 02010522-->
+                </tr>
+                <tr>
+<!-- /ANB006 - 02010522-->
+<!-- ANB006 - 11010422-->
+<!-- ANB006 - 02010522
+                    <td class="celldisplay"> -->
+                    <td class="celldisplaylabel">
+<!-- /ANB006 - 02010522-->
+                        <label for="MIR-NCSH-XF-IND">Non-Cash Transfer Indicator:</label>
+<!-- /ANB006 - 11010422-->
+                    </td>
+                    <td class="celldisplay">
+<!-- ANB006 - 11010422-->
+                        <input type="checkbox" name="MIR-NCSH-XF-IND" stype="Indicator" value="Y" disabled="yes"/>
+<!-- /ANB006 - 11010422-->
+                    </td>
+<!-- ANB006 - 02010522
+                </tr>
+/ANB006 - 02010522 -->
+<!-- ANB006 - 11010422-->
+<!-- ANB006 - 02010522
+                <tr>
+/ANB006 - 02010522 -->
+<!-- ANB006 - 02010522
+                    <td class="celldisplaylabel">
+                    </td>
+                    <td class="celldisplay">
+                    </td>
+/ANB006 - 02010522 -->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-FAC-REINS-IND">Facultative Reinsurance Indicator:</label>
+                    </td>
+                    <td class="celldisplay">
+                         <input type="checkbox" name="MIR-DV-FAC-REINS-IND" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+                </tr>
+<!-- /ANB006 - 11010422-->
+<!--/ANB006-->
+<!--ANB007
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-XTRA-COMM-ELIG-CD">Extra Commission Eligibility:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-XTRA-COMM-ELIG-CD" stype="Text" displayonly="yes">MIR-XTRA-COMM-ELIG-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                    </td>
+                    <td class="celldisplay">
+                    </td>
+                </tr>
+-->
+<!--/ANB007-->
+<!-- ANB025 - 04180502-->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-WSM-CORP-ID">WSM Corporate ID:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-WSM-CORP-ID" stype="Text" displayonly="yes">MIR-DV-WSM-CORP-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+<!-- APA061 - 11150505
+                        <label for="MIR-DV-WSM-CHNL-CD">WSM Channel Code:</label>
+-->
+                    </td>
+                    <td class="celldisplay">
+<!-- APA061 - 11150505
+                        <span id="MIR-DV-WSM-CHNL-CD" stype="Text" displayonly="yes">MIR-DV-WSM-CHNL-CD</span>
+-->
+                    </td>
+                </tr>
+<!-- /ANB025 - 04180502-->
+<!-- ANB006 - 06130527 -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-REJ-REASN-CD">Rejection Reason:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-REJ-REASN-CD" stype="Text" displayonly="yes">MIR-POL-REJ-REASN-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-REJ-REASN-COND-CD">Rejection Reason Condition:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-REJ-REASN-COND-CD" stype="Text" displayonly="yes">MIR-REJ-REASN-COND-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-NEG-CD">Negative Code:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NEG-CD" stype="Text" displayonly="yes">MIR-NEG-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-REJ-RQST-DT">Rejection Request Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-REJ-RQST-DT" stype="Date" displayonly="yes">MIR-POL-REJ-RQST-DT</span>
+                    </td>
+                </tr>
+<!-- /ANB006 - 06130527 -->
+<!-- ANB028 - 09140501 -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-VERIF-IND">Policy Verified:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-POL-VERIF-IND" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-VERIF-IND">Client Verified:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-CLI-VERIF-IND" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+                </tr>
+<!-- /ANB028 - 09140501 -->
+<!-- ANB006 - 09090533-->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-LEAD-ID">Lead Code:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-LEAD-CD" stype="Text" displayonly="yes">MIR-POL-LEAD-CD</span>
+                    </td>
+<!-- ANB006 - 07250638
+                    <td class="celldisplaylabel">
+                    </td>
+                    <td class="celldisplay">
+                    </td>
+-->
+<!-- /ANB006 - 07250638-->
+<!-- ANB006 - 07250638-->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-XTRNL-REF-TXT">External Reference:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-XTRNL-REF-TXT" stype="Text" displayonly="yes">MIR-POL-XTRNL-REF-TXT</span>
+                    </td>
+<!-- /ANB006 - 07250638-->
+                </tr>
+<!-- /ANB006 - 09090533-->
+            </table>
+            <br />
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
 
+Back to top
+                </a>
+            </p>
+<!--CFA208 - 01240906-->
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="MonthiversaryInformation">Monthiversary Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-UL-PRCES-DT">Next MAV Due Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-UL-PRCES-DT" stype="Date" displayonly="yes">MIR-POL-UL-PRCES-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-UL-PTD-NUM">MAV Paid To Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-UL-PTD-NUM" stype="Date" displayonly="yes">MIR-POL-UL-PTD-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-UL-SHRT-AMT">Policy Shortage Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-UL-SHRT-AMT" stype="Currency" elength="13" displayonly="yes">MIR-POL-UL-SHRT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                    </td>
+                    <td class="celldisplay">
+                    </td>
+                </tr>
+            </table>
+            <br />
+<!--/CFA208 - 01240906-->
+<!--CPR218 - 05130902-->
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="WaiverProcessingInformation">Waiver Processing Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-WAV-STAT-CD">Waiver Status Code:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-WAV-STAT-CD" stype="Text" displayonly="yes">MIR-POL-WAV-STAT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MAV-WAV-STRT-DT">MAV Waiver Start Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MAV-WAV-STRT-DT" stype="Date" displayonly="yes">MIR-MAV-WAV-STRT-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PREM-WAV-STRT-DT">Premium Waiver Start Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PREM-WAV-STRT-DT" stype="Date" displayonly="yes">MIR-PREM-WAV-STRT-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                    </td>
+                    <td class="celldisplay">
+                    </td>
+                </tr>
+<!--CPR133 - 02261401-->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-EMBED-WAV-STAT-CD">Embedded Waiver Status Code:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-EMBED-WAV-STAT-CD" stype="Text" displayonly="yes">MIR-POL-EMBED-WAV-STAT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-EMBED-PWAV-STRT-DT">Embedded Premium Waiver Start Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-EMBED-PWAV-STRT-DT" stype="Date" displayonly="yes">MIR-EMBED-PWAV-STRT-DT</span>
+                    </td>
+                </tr>
+<!--/CPR133 02261401-->
+<!--CPR143 - 05281402-->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IER-CPN-STAT-CD">IER Coupon Status Code:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IER-CPN-STAT-CD" stype="Text" displayonly="yes">MIR-IER-CPN-STAT-CD</span>
+                    </td>
+<!--CPR147 START 01151505-->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-IER-CPN-STRT-DT">IER Coupon Start Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-IER-CPN-STRT-DT" stype="Date" displayonly="yes">MIR-POL-IER-CPN-STRT-DT</span>
+                    </td>
+<!--/CPR147 End 01151505-->
+<!--CPR143 START 09241421
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-IER-CPN-STRT-DT">IER Coupon Start Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-IER-CPN-STRT-DT" stype="Date" displayonly="yes">MIR-POL-IER-CPN-STRT-DT</span>
+                    </td>
+/CPR143 END 09241421-->
+<!--CPR143 START 09241421-->
+<!--CPR147 START 01151505
+                    <td class="celldisplaylabel">
+                    </td>
+                    <td class="celldisplay">
+                    </td>
+/CPR147 End 01151505-->
+<!--/CPR143 END 09241421-->
+                </tr>
+<!--/CPR143 05281402-->
+            </table>
+            <br />
+<!--/CPR218 - 05130902-->
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="ServicingAgentInformation">Servicing Agent Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SERV-AGT-ID">Servicing Agent ID:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SERV-AGT-ID" stype="Text" displayonly="yes">MIR-SERV-AGT-ID</span>
+                    </td>
+<!--AAG005
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SERV-BR-ID">Servicing Agent's Branch:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SERV-BR-ID" stype="Text" displayonly="yes">MIR-SERV-BR-ID</span>
+                    </td>
+                </tr>
+                <tr>
+/AAG005-->
+                    <td class="celldisplaylabel" >
+                        <label for="MIR-DV-SERV-AGT-CLI-NM" >Servicing Agent's Name:</label>
+                    </td>
+<!--AAG005 remove colspan="3" -->
+                    <td class="celldisplay">
+                        <span id="MIR-DV-SERV-AGT-CLI-NM" stype="Text" displayonly="yes" >MIR-DV-SERV-AGT-CLI-NM</span>
+                    </td>
+                 </tr>
+<!--AAG005
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SERV-AGT-ASIGN-DT">Servicing Agent Assignment Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SERV-AGT-ASIGN-DT" stype="Date" displayonly="yes">MIR-SERV-AGT-ASIGN-DT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <label for="MIR-PREV-SERV-AGT-ID">Previous Servicing Agent:</label>
+                    <td class="celldisplay" />
+                <span id="MIR-PREV-SERV-AGT-ID" stype="Text" displayonly="yes">MIR-PREV-SERV-AGT-ID</span>
+                </tr>
+/AAG005-->
+            </table>
+<!--BAG002-->
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="AgentInformation">Complaint Policy Service Agent Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CMPLN-POL-SERV-AGT-ID">Complaint Policy Servicing Agent ID:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CMPLN-POL-SERV-AGT-ID" stype="Text" displayonly="yes">MIR-CMPLN-POL-SERV-AGT-ID</span>
+                    </td>
+                    <td class="celldisplaylabel" >
+                        <label for="MIR-DV-CMPLN-POL-SERV-AGT-NM" >Servicing Agent's Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CMPLN-POL-SERV-AGT-NM" stype="Text" displayonly="yes" >MIR-DV-CMPLN-POL-SERV-AGT-NM</span>
+                    </td>
+                 </tr>
+            </table>
 <!--/BAG002-->
             <br />
             <table class="tabledisplay" genrows="0" keyfield="0">
                 <tr>
-                    <td class="celldisplayheading" colspan="6">Coverage Basic Information</td>
+<!--AAG008 change colspan from 3 to 4 -->
+<!-- ANB006 - 03110508
+                    <td class="celldisplayheading" colspan="4">Writing Agent Information</td>
+-->
+<!-- ANB006 - 03110508 -->
+                    <td class="celldisplayheading" colspan="5">Writing Agent Information</td>
+<!-- /ANB006 - 03110508 -->
                 </tr>
                 <tr>
 <!-- ANB006 - 03110508 -->
                     <td class="celldisplayheading">
-                        <label for="MIR-CVG-NUM-T[1]">Coverage Number</label>
+                        <label for="MIR-AGNCY-BR-ID-T[1]">Agency Code</label>
                     </td>
 <!-- /ANB006 - 03110508 -->
                     <td class="celldisplayheading">
-                        <label for="MIR-PLAN-ID-T[1]">Plan Id</label>
+                        <label for="MIR-AGT-ID-T[1]">Writing Agent Number</label>
                     </td>
                     <td class="celldisplayheading">
-                        <label for="MIR-CVG-ISS-EFF-DT-T[1]">Issue Date</label>
+                        <label for="MIR-DV-AGT-CLI-NM-T[1]">Agent Name</label>
                     </td>
 <!--AAG008START-->
                     <td class="celldisplayheading">
-                        <label for="MIR-CVG-CSTAT-CD-T[1]">Coverage Status</label>
+                        <label for="MIR-WRIT-AGT-OVRID-ID-T[1]">Override Situation</label>
                     </td>
 <!--AAG008END-->
                     <td class="celldisplayheading">
-                        <label for="MIR-CVG-FACE-AMT-T[1]">Face Amount</label>
-                    </td>
-                    <td class="celldisplayheading">
-                        <label for="MIR-CVG-MPREM-AMT-T[1]">Model Premium</label>
+                        <label for="MIR-POL-AGT-SHR-PCT-T[1]">Agent's Share Percentage</label>
                     </td>
                 </tr>
                 <tr>
 <!-- ANB006 - 03110508 -->
                     <td class="celldisplay">
-                        <span id="MIR-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-CVG-NUM-T[]</span>
-                    </td>
-                    <td class="celldisplay">
-                        <span id="MIR-PLAN-ID-T[]" stype="Text" displayonly="yes">MIR-PLAN-ID-T[]</span>
+                        <span id="MIR-AGNCY-BR-ID-T[]" stype="Text" displayonly="yes">MIR-AGNCY-BR-ID-T[]</span>
                     </td>
 <!-- /ANB006 - 03110508 -->
                     <td class="celldisplay">
-                        <span id="MIR-CVG-ISS-EFF-DT-T[]" stype="Date" displayonly="yes">MIR-CVG-ISS-EFF-DT-T[]</span>
+                        <span id="MIR-AGT-ID-T[]" stype="Text" displayonly="yes">MIR-AGT-ID-T[]</span>
                     </td>
                     <td class="celldisplay">
-                        <span id="MIR-CVG-CSTAT-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-CSTAT-CD-T[]</span>
+                        <span id="MIR-DV-AGT-CLI-NM-T[]" stype="Text" displayonly="yes">MIR-DV-AGT-CLI-NM-T[]</span>
                     </td>
 <!--AAG008START-->
                     <td class="celldisplay">
-                        <span id="MIR-CVG-FACE-AMT-T[]" stype="Currency" displayonly="yes">MIR-CVG-FACE-AMT-T[]</span>
+                        <span id="MIR-WRIT-AGT-OVRID-ID-T[]" stype="Text" displayonly="yes">MIR-WRIT-AGT-OVRID-ID-T[]</span>
                     </td>
 <!--AAG008END-->
                     <td class="celldisplay">
-                        <span id="MIR-CVG-MPREM-AMT-T[]" stype="Currency" displayonly="yes">MIR-CVG-MPREM-AMT-T[]</span>
+                        <span id="MIR-POL-AGT-SHR-PCT-T[]" stype="Percent" elength="5" decimals="2" displayonly="yes">MIR-POL-AGT-SHR-PCT-T[]</span>
                     </td>
                 </tr>
             </table>
 <!--AAG024 - 10110506 -->
             <br />
+            <table class="tabledisplay" genrows="0" keyfield="0">
+                <tr>
+                    <td class="celldisplayheading" colspan="5">Original Writing Agent Information</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ORG-AGNCY-BR-ID-T[1]">Agency Code</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ORG-AGT-ID-T[1]">Writing Agent Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-ORG-AGT-CLI-NM-T[1]">Agent Name</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ORG-WRIT-AGT-OVRID-ID-T[1]">Override Situation</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ORG-POL-AGT-SHR-PCT-T[1]">Agent's Share Percentage</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-ORG-AGNCY-BR-ID-T[]" stype="Text" displayonly="yes">MIR-ORG-AGNCY-BR-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ORG-AGT-ID-T[]" stype="Text" displayonly="yes">MIR-ORG-AGT-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-ORG-AGT-CLI-NM-T[]" stype="Text" displayonly="yes">MIR-DV-ORG-AGT-CLI-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ORG-WRIT-AGT-OVRID-ID-T[]" stype="Text" displayonly="yes">MIR-ORG-WRIT-AGT-OVRID-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ORG-POL-AGT-SHR-PCT-T[]" stype="Percent" elength="5" decimals="2" displayonly="yes">MIR-ORG-POL-AGT-SHR-PCT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+<!-- /AAG024 - 10110506 -->
+            <br />
+            <table class="tabledisplay" genrows="0" keyfield="0">
+                <tr>
+<!--ACL002
+                    <td class="celldisplayheading" colspan="6">
+/ACL002-->
+<!--ACL002-->
+<!-- CPA001 - 08300702
+                  <td class="celldisplayheading" colspan="8">
+-->
+                  <td class="celldisplayheading" colspan="4">
+<!-- /CPA001 - 08300702 -->
+<!--/ACL002-->
+                        <a name="OwnerRelationships">Owner Relationships</a>
+                    </td>
+<!-- CPA001 - 08300702 -->
+                  <td class="celldisplayheading" colspan="3"><a>Mailling Address</a></td>
+                  <td class="celldisplayheading" colspan="3"><a>Residence Address</a></td>
+                  <td class="celldisplayheading" colspan="4"><a>Contact Information</a></td>
+                  <td class="celldisplayheading" colspan="11"><a>U/W Information</a></td>
+<!-- /CPA001 - 08300702 -->
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ID-T[1]">Client ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-OWN-CLI-NM-T[1]">Owner Name</label>
+                    </td>
+<!-- CPA001 - 08300702
+                    <td class="celldisplayheading">
+/CPA001 - 08300702 -->
+<!--/ANB007           <label for="MIR-CLI-TAX-ID-T[1]">Client's Tax ID</label>
+-->
+<!-- CPA001 - 08300702
+                        <label for="MIR-CLI-TAX-ID-T[1]">National ID</label>
+/CPA001 - 08300702 -->
+<!--/ANB007-->
+<!-- CPA001 - 08300702
+                    </td>
+/CPA001 - 08300702 -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-CLI-INSRD-CD-T[1]">Owner's Relationship to Insured</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-OWN-SUB-CD-T[1]">Owner Client Relationship Type</label>
+                    </td>
+<!-- CPA001 - 08300702
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ADDR-TYP-CD-T[1]">Client Address Type</label>
+                    </td>
+-->
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ADDR-GR-1-CD-T[1]">Character Set</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ADDR-TYP-1-CD-T[1]">Address Type</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ADDR-SEQ-1-NUM-T[1]">Sequence Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ADDR-GR-2-CD-T[1]">Character Set</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ADDR-TYP-2-CD-T[1]">Address Type</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ADDR-SEQ-2-NUM-T[1]">Sequence Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-DAY-PHON-NUM-T[1]">Phone In Day</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-NIGHT-PHON-NUM-T[1]">Phone In Night</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-CELL-PHON-NUM-T[1]">Mobile Phone</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-CNTCT-MAIL-NUM-T[1]">Email</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-TAX-ID-T[1]">ID Card No</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ID-TYP-CD-T[1]">ID Type</label>
+                    </td>
+<!--CPR177 - 11131802-->
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-TAX-2-ID-T[1]">ID Card No2</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ID-TYP-2-CD-T[1]">ID Type2</label>
+                    </td>
+<!--/CPR177 - 11131802-->
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-MARIT-STAT-CD-T[1]">Marital Status</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-CITZ-CD-T[1]">Nationality</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-PERM-RES-IND-T[1]">Permanent Residence</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-INCM-EARN-AMT-T[1]">Annual Income</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-WGT-T[1]">Weight<br />(KG)</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-HT-T[1]">Height<br />(CM)</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-OCCP-ID-T[1]">Occupation Code</label>
+                    </td>
+                    <td class="celldisplayheading">
+<!-- CPA001 - 01110802
+                        <label for="MIR-CLI-SHIP-IND-T[1]">SHIP</label>
+-->
+                        <label for="MIR-CLI-SHIP-CD-T[1]">SHIP</label>
+<!-- /CPA001 - 01110802 -->
+                    </td>
+<!-- /CPA001 - 08300702 -->
+<!--CPA006 - 09290702
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ADDR-TYP-CD-T[1]">Client Address Type</label>
+                    </td>
+-->
+<!--/CPA006 - 09290702 -->
+<!--ACL002-->
+<!--CPA006 - 09290702
+                   <td class="celldisplayheading">
+                       <label for="MIR-DV-OWN-CLI-CLAS-CD-T[1]">VIP</label>
+                   </td>
+-->
+<!--/CPA006 - 09290702-->
+<!--/ACL003-->
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ID-T[]" stype="Text" displayonly="yes">MIR-CLI-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-OWN-CLI-NM-T[]" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM-T[]</span>
+                    </td>
+<!-- CPA001 - 08300702
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-TAX-ID-T[]" stype="Text" displayonly="yes">MIR-CLI-TAX-ID-T[]</span>
+                    </td>
+/CPA001 - 08300702 -->
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CLI-INSRD-CD-T[]" stype="Text" displayonly="yes">MIR-POL-CLI-INSRD-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-OWN-SUB-CD-T[]" stype="Text" displayonly="yes">MIR-DV-OWN-SUB-CD-T[]</span>
+                    </td>
+<!-- CPA001 - 08300702
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ADDR-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-CLI-ADDR-TYP-CD-T[]</span>
+                    </td>
+-->
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ADDR-GR-1-CD-T[]" stype="Text" displayonly="yes">MIR-CLI-ADDR-GR-1-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ADDR-TYP-1-CD-T[]" stype="Text" displayonly="yes">MIR-CLI-ADDR-TYP-1-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ADDR-SEQ-1-NUM-T[]" stype="Text" displayonly="yes">MIR-CLI-ADDR-SEQ-1-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ADDR-GR-2-CD-T[]" stype="Text" displayonly="yes">MIR-CLI-ADDR-GR-2-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ADDR-TYP-2-CD-T[]" stype="Text" displayonly="yes">MIR-CLI-ADDR-TYP-2-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ADDR-SEQ-2-NUM-T[]" stype="Text" displayonly="yes">MIR-CLI-ADDR-SEQ-2-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-DAY-PHON-NUM-T[]" stype="Text" displayonly="yes">MIR-CLI-DAY-PHON-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-NIGHT-PHON-NUM-T[]" stype="Text" displayonly="yes">MIR-CLI-NIGHT-PHON-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-CELL-PHON-NUM-T[]" stype="Text" displayonly="yes">MIR-CLI-CELL-PHON-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-CNTCT-MAIL-NUM-T[]" stype="Text" displayonly="yes">MIR-CLI-CNTCT-MAIL-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-TAX-ID-T[]" stype="Text" displayonly="yes">MIR-CLI-TAX-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ID-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-CLI-ID-TYP-CD-T[]</span>
+                    </td>
+<!--CPR177 - 11131802-->
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-TAX-2-ID-T[]" stype="Text" displayonly="yes">MIR-CLI-TAX-2-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ID-TYP-2-CD-T[]" stype="Text" displayonly="yes">MIR-CLI-ID-TYP-2-CD-T[]</span>
+                    </td>
+<!--/CPR177 - 11131802-->
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-MARIT-STAT-CD-T[]" stype="Text" displayonly="yes">MIR-CLI-MARIT-STAT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-CITZ-CD-T[]" stype="Text" displayonly="yes">MIR-CLI-CITZ-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-CLI-PERM-RES-IND-T[]" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-INCM-EARN-AMT-T[]" stype="Text" displayonly="yes">MIR-CLI-INCM-EARN-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-WGT-T[]" stype="Text" displayonly="yes">MIR-CLI-WGT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-HT-T[]" stype="Text" displayonly="yes">MIR-CLI-HT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-OCCP-ID-T[]" stype="Text" displayonly="yes">MIR-CLI-OCCP-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+<!-- CPA001 - 01110802
+                        <span id="MIR-CLI-SHIP-IND-T[]" stype="Text" displayonly="yes">MIR-CLI-SHIP-IND-T[]</span>
+-->
+                        <span id="MIR-CLI-SHIP-CD-T[]" stype="Text" displayonly="yes">MIR-CLI-SHIP-CD-T[]</span>
+<!-- /CPA001 - 01110802 -->
+                    </td>
+<!-- /CPA001 - 08300702 -->
+<!--ACL002-->
+<!--CPA006 - 09290702
+                   <td class="celldisplay">
+                        <span id="MIR-DV-OWN-CLI-CLAS-CD-T[]" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-CLAS-CD-T[]</span>
+                   </td>
+-->
+<!--/CPA006 - 09290702 -->
+<!--/ACL002-->
 
+                </tr>
+            </table>
+<!--/ANB007-->
+            <br />
+            <table class="tabledisplay" genrows="0" keyfield="0">
+                <tr>
+<!-- CPA001 - 08300702
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="OwnerRelationships">Insured Relationships</a>
+                    </td>
+-->
+<!-- CPR149 - 06171504
+                    <td class="celldisplayheading" colspan="3"><a name="insuredRelationships">Insured Relationships</a></td>
+-->
+                    <td class="celldisplayheading" colspan="4"><a name="insuredRelationships">Insured Relationships</a></td>
+<!-- /CPR149 - 06171504-->
+                    <td class="celldisplayheading" colspan="3"><a>Residence Address</a></td>
+                    <td class="celldisplayheading" colspan="4"><a>Contact Information</a></td>
+                    <td class="celldisplayheading" colspan="11"><a>U/W Information</a></td>
+<!-- /CPA001 - 08300702 -->
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-INSRD-CLI-ID-T[1]">Client ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-INSRD-CLI-NM-T[1]">Insured Name</label>
+                    </td>
+<!-- CPA001 - 08300702
+                    <td class="celldisplayheading">
+                        <label for="MIR-INSRD-CLI-TAX-ID-T[1]">National ID</label>
+                    </td>
+-->
+<!-- CPR149 - 07101504-->
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-CLI-INSRD-CD-T[1]">Relationship to Primary Insured</label>
+                    </td>
+<!-- /CPR149 - 07101504-->
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-INSRD-SUB-CD-T[1]">Relationship Type</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-INSRD-CLI-ADDR-GR-2-CD-T[1]">Character Set</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-INSRD-CLI-ADDR-TYP-2-CD-T[1]">Address Type</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-INSRD-CLI-ADDR-SEQ-2-NUM-T[1]">Sequence Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-INSRD-CLI-DAY-PHON-NUM-T[1]">Phone In Day</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-INSRD-CLI-NIGHT-PHON-NUM-T[1]">Phone In Night</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-INSRD-CLI-CELL-PHON-NUM-T[1]">Mobile Phone</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-INSRD-CLI-CNTCT-MAIL-NUM-T[1]">Email</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-INSRD-CLI-TAX-ID-T[1]">ID Card No</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-INSRD-CLI-ID-TYP-CD-T[1]">ID Type</label>
+                    </td>
+<!--CPR177 - 11131802-->
+                    <td class="celldisplayheading">
+                        <label for="MIR-INSRD-CLI-TAX-2-ID-T[1]">ID Card No2</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-INSRD-CLI-ID-TYP-2-CD-T[1]">ID Type2</label>
+                    </td>
+<!--/CPR177 - 11131802-->
+                    <td class="celldisplayheading">
+                        <label for="MIR-INSRD-CLI-MARIT-STAT-CD-T[1]">Marital Status</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-INSRD-CLI-CITZ-CD-T[1]">Nationality</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-INSRD-CLI-PERM-RES-IND-T[1]">Permanent Residence</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-INSRD-CLI-INCM-EARN-AMT-T[1]">Annual Income</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-INSRD-CLI-WGT-T[1]">Weight<br />(KG)</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-INSRD-CLI-HT-T[1]">Height<br />(CM)</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-INSRD-CLI-OCCP-ID-T[1]">Occupation Code</label>
+                    </td>
+                    <td class="celldisplayheading">
+<!-- CPA001 - 01110802
+                        <label for="MIR-INSRD-CLI-SHIP-IND-T[1]">SHIP</label>
+-->
+                        <label for="MIR-INSRD-CLI-SHIP-CD-T[1]">SHIP</label>
+<!-- /CPA001 - 01110802 -->
+                    </td>
+<!--
+                   <td class="celldisplayheading">
+                       <label for="MIR-DV-INSRD-CLI-CLAS-CD-T[1]">VIP</label>
+                   </td>
+-->
+<!-- /CPA001 - 08300702 -->
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-CLI-ID-T[]" stype="Text" displayonly="yes">MIR-INSRD-CLI-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-INSRD-CLI-NM-T[]" stype="Text" displayonly="yes">MIR-DV-INSRD-CLI-NM-T[]</span>
+                    </td>
+<!-- CPA001 - 08300702
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-CLI-TAX-ID-T[]" stype="Text" displayonly="yes">MIR-INSRD-CLI-TAX-ID-T[]</span>
+                    </td>
+                   <td class="celldisplay">
+                        <span id="MIR-DV-INSRD-CLI-CLAS-CD-T[]" stype="Text" displayonly="yes">MIR-DV-INSRD-CLI-CLAS-CD-T[]</span>
+                   </td>
+-->
+<!-- CPR149 - 07101504-->
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-CLI-INSRD-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-CLI-INSRD-CD-T[]</span>
+                    </td>
+<!-- /CPR149 - 07101504-->
+                    <td class="celldisplay">
+                        <span id="MIR-DV-INSRD-SUB-CD-T[]" stype="Text" displayonly="yes">MIR-DV-INSRD-SUB-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-CLI-ADDR-GR-2-CD-T[]" stype="Text" displayonly="yes">MIR-INSRD-CLI-ADDR-GR-2-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-CLI-ADDR-TYP-2-CD-T[]" stype="Text" displayonly="yes">MIR-INSRD-CLI-ADDR-TYP-2-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-CLI-ADDR-SEQ-2-NUM-T[]" stype="Text" displayonly="yes">MIR-INSRD-CLI-ADDR-SEQ-2-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-CLI-DAY-PHON-NUM-T[]" stype="Text" displayonly="yes">MIR-INSRD-CLI-DAY-PHON-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-CLI-NIGHT-PHON-NUM-T[]" stype="Text" displayonly="yes">MIR-INSRD-CLI-NIGHT-PHON-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-CLI-CELL-PHON-NUM-T[]" stype="Text" displayonly="yes">MIR-INSRD-CLI-CELL-PHON-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-CLI-CNTCT-MAIL-NUM-T[]" stype="Text" displayonly="yes">MIR-INSRD-CLI-CNTCT-MAIL-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-CLI-TAX-ID-T[]" stype="Text" displayonly="yes">MIR-INSRD-CLI-TAX-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-CLI-ID-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-INSRD-CLI-ID-TYP-CD-T[]</span>
+                    </td>
+<!--CPR177 - 11131802-->
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-CLI-TAX-2-ID-T[]" stype="Text" displayonly="yes">MIR-INSRD-CLI-TAX-2-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-CLI-ID-TYP-2-CD-T[]" stype="Text" displayonly="yes">MIR-INSRD-CLI-ID-TYP-2-CD-T[]</span>
+                    </td>
+<!--/CPR177 - 11131802-->
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-CLI-MARIT-STAT-CD-T[]" stype="Text" displayonly="yes">MIR-INSRD-CLI-MARIT-STAT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-CLI-CITZ-CD-T[]" stype="Text" displayonly="yes">MIR-INSRD-CLI-CITZ-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-INSRD-CLI-PERM-RES-IND-T[]" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-CLI-INCM-EARN-AMT-T[]" stype="Text" displayonly="yes">MIR-INSRD-CLI-INCM-EARN-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-CLI-WGT-T[]" stype="Text" displayonly="yes">MIR-INSRD-CLI-WGT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-CLI-HT-T[]" stype="Text" displayonly="yes">MIR-INSRD-CLI-HT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-CLI-OCCP-ID-T[]" stype="Text" displayonly="yes">MIR-INSRD-CLI-OCCP-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+<!-- CPA001 - 01110802
+                        <span id="MIR-INSRD-CLI-SHIP-IND-T[]" stype="Text" displayonly="yes">MIR-INSRD-CLI-SHIP-IND-T[]</span>
+-->
+                        <span id="MIR-INSRD-CLI-SHIP-CD-T[]" stype="Text" displayonly="yes">MIR-INSRD-CLI-SHIP-CD-T[]</span>
+<!-- /CPA001 - 01110802 -->
+                    </td>
+<!-- /CPA001 - 08300702 -->
+                </tr>
+            </table>
+<!--/ANB007-->
+            <br />
+            <table class="tabledisplay">
+                <tr>
+<!--ACL002
+                    <td class="celldisplayheading" colspan="4">
+/ACL002-->
+<!--ACL002-->
+<!-- CPA001 - 08300702
+                   <td class="celldisplayheading" colspan="5">
+-->
+                   <td class="celldisplayheading" colspan="6">
+<!-- /CPA001 - 08300702 -->
+<!--/ACL002-->
+                        <a name="OtherRelationships">Payor Relationships</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-PAYR-CLI-ID"> Client ID:</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-PAYR-CLI-NM">Payor Name:</label>
+                    </td>
+                    <td class="celldisplayheading">
+       <!-- ANB013
+                        <label for="MIR-DV-PAYR-SUB-CD"> Relationship Type</label>
+       ANB013 -->
+<!--ANB013-->
+<!-- CPA001 - 08300702
+                        <label for="MIR-DV-PAYR-SUB-CD">Bank Account:</label>
+-->
+                        <label for="MIR-DV-PAYR-ADDR-GR-CD">Character Set</label>
+<!-- /CPA001 - 08300702 -->
+<!--ANB013-->
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-PAYR-ADDR-CD"> Address Type:</label>
+                    </td>
+<!-- CPA001 - 08300702 -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-PAYR-ADDR-SEQ-NUM">Sequence Number:</label>
+                    </td>
+<!-- /CPA001 - 08300702 -->
+<!--ACL002-->
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-PAYR-CLI-CLAS-CD">VIP</label>
+                    </td>
+<!--/ACL002-->
+
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-PAYR-CLI-ID" stype="Text" displayonly="yes">MIR-DV-PAYR-CLI-ID</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-PAYR-CLI-NM" stype="Text" displayonly="yes">MIR-DV-PAYR-CLI-NM</span>
+                    </td>
+<!-- CPA001 - 08300702
+                    <td class="celldisplay">
+                        <span id="MIR-DV-PAYR-SUB-CD" stype="Text" displayonly="yes">MIR-DV-PAYR-SUB-CD</span>
+                    </td>
+-->
+                    <td class="celldisplay">
+                        <span id="MIR-DV-PAYR-ADDR-GR-CD" stype="Text" displayonly="yes">MIR-DV-PAYR-ADDR-GR-CD</span>
+                    </td>
+<!-- /CPA001 - 08300702 -->
+                    <td class="celldisplay">
+                        <span id="MIR-DV-PAYR-ADDR-CD" stype="Text" displayonly="yes">MIR-DV-PAYR-ADDR-CD</span>
+                    </td>
+<!-- CPA001 - 08300702 -->
+                    <td class="celldisplay">
+                        <span id="MIR-DV-PAYR-ADDR-SEQ-NUM" stype="Text" displayonly="yes">MIR-DV-PAYR-ADDR-SEQ-NUM</span>
+                    </td>
+<!-- /CPA001 - 08300702 -->
+<!--ACL002-->
+                    <td class="celldisplay">
+                        <span id="MIR-DV-PAYR-CLI-CLAS-CD" stype="Text" displayonly="yes">MIR-DV-PAYR-CLI-CLAS-CD</span>
+                    </td>
+<!--ACL002-->
+
+                </tr>
+            </table>
+<!--APA040 - 07060601 -->
+            <br />
+            <table class="tabledisplay">
+                <tr>
+<!-- CPA001 - 08300702
+                   <td class="celldisplayheading" colspan="3">
+-->
+                   <td class="celldisplayheading" colspan="5">
+<!-- /CPA001 - 08300702 -->
+                        <a name="OtherRelationships">Payor Benefit Relationships</a>
+                   </td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-PB-CLI-ID"> Client ID:</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-PB-CLI-NM">Payor Benefit Client Name:</label>
+                    </td>
+<!-- CPA001 - 08300702 -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-PB-ADDR-GR-CD">Character Set</label>
+                    </td>
+<!-- /CPA001 - 08300702 -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-PB-ADDR-CD"> Address Type:</label>
+                    </td>
+<!-- CPA001 - 08300702 -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-PB-ADDR-SEQ-NUM">Sequence Number</label>
+                    </td>
+<!-- /CPA001 - 08300702 -->
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-PB-CLI-ID" stype="Text" displayonly="yes">MIR-DV-PB-CLI-ID</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-PB-CLI-NM" stype="Text" displayonly="yes">MIR-DV-PB-CLI-NM</span>
+                    </td>
+<!-- CPA001 - 08300702 -->
+                    <td class="celldisplay">
+                        <span id="MIR-DV-PB-ADDR-GR-CD" stype="Text" displayonly="yes">MIR-DV-PB-ADDR-GR-CD</span>
+                    </td>
+<!-- /CPA001 - 08300702 -->
+                    <td class="celldisplay">
+                        <span id="MIR-DV-PB-ADDR-CD" stype="Text" displayonly="yes">MIR-DV-PB-ADDR-CD</span>
+                    </td>
+<!-- CPA001 - 08300702 -->
+                    <td class="celldisplay">
+                        <span id="MIR-DV-PB-ADDR-SEQ-NUM" stype="Text" displayonly="yes">MIR-DV-PB-ADDR-SEQ-NUM</span>
+                    </td>
+<!-- /CPA001 - 08300702 -->
+                </tr>
+            </table>
+<!--/APA040 - 07060601 -->
+            <br />
+            <table class="tabledisplay">
+                <tr>
+<!-- CPA001 - 08300702
+                    <td class="celldisplayheading" colspan="3">Spouse Relationship</td>
+-->
+                    <td class="celldisplayheading" colspan="5">Spouse Relationship</td>
+<!-- /CPA001 - 08300702 -->
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-SPOUS-CLI-ID"> Client ID:</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-SPOUS-CLI-NM">Spouse Name:</label>
+                    </td>
+<!-- CPA001 - 08300702 -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-SPOUS-ADDR-GR-CD">Character Set</label>
+                    </td>
+<!-- /CPA001 - 08300702 -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-SPOUS-ADDR-CD"> Address Type:</label>
+                    </td>
+<!-- CPA001 - 08300702 -->
+                    <td class="celldataentryheading" height="30">
+                        <label for="MIR-DV-SPOUS-ADDR-SEQ-NUM">Sequence Number</label>
+                    </td>
+<!-- /CPA001 - 08300702 -->
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-SPOUS-CLI-ID" stype="Text" displayonly="yes">MIR-DV-SPOUS-CLI-ID</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-SPOUS-CLI-NM" stype="Text" displayonly="yes">MIR-DV-SPOUS-CLI-NM</span>
+                    </td>
+<!-- CPA001 - 08300702 -->
+                    <td class="celldisplay">
+                        <span id="MIR-DV-SPOUS-ADDR-GR-CD" stype="Text" displayonly="yes">MIR-DV-SPOUS-ADDR-GR-CD</span>
+                    </td>
+<!-- /CPA001 - 08300702 -->
+                    <td class="celldisplay">
+                        <span id="MIR-DV-SPOUS-ADDR-CD" stype="Text" displayonly="yes">MIR-DV-SPOUS-ADDR-CD</span>
+                    </td>
+<!-- CPA001 - 08300702 -->
+                    <td class="celldisplay">
+                        <span id="MIR-DV-SPOUS-ADDR-SEQ-NUM" stype="Text" displayonly="yes">MIR-DV-PB-ADDR-SEQ-NUM</span>
+                    </td>
+<!-- /CPA001 - 08300702 -->
+                </tr>
+            </table>
+<!--ANB021-->
+            <br />
+            <table class="tabledisplay">
+                <tr>
+<!-- CPA001 - 08300702
+                    <td class="celldisplayheading" colspan="3">Child Relationship</td>
+-->
+                    <td class="celldisplayheading" colspan="5">Child Relationship</td>
+<!-- /CPA001 - 08300702 -->
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-CHILD-CLI-ID"> Client ID:</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-CHILD-CLI-NM">Child Name:</label>
+                    </td>
+<!-- CPA001 - 08300702 -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-CHILD-ADDR-GR-CD">Character Set</label>
+                    </td>
+<!-- /CPA001 - 08300702 -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-CHILD-ADDR-CD"> Address Type:</label>
+                    </td>
+<!-- CPA001 - 08300702 -->
+                    <td class="celldataentryheading" height="30">
+                        <label for="MIR-DV-SPOUS-ADDR-SEQ-NUM">Sequence Number</label>
+                    </td>
+<!-- /CPA001 - 08300702 -->
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CHILD-CLI-ID" stype="Text" displayonly="yes">MIR-DV-CHILD-CLI-ID</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CHILD-CLI-NM" stype="Text" displayonly="yes">MIR-DV-CHILD-CLI-NM</span>
+                    </td>
+<!-- CPA001 - 08300702 -->
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CHILD-ADDR-GR-CD" stype="Text" displayonly="yes">MIR-DV-CHILD-ADDR-GR-CD</span>
+                    </td>
+<!-- /CPA001 - 08300702 -->
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CHILD-ADDR-CD" stype="Text" displayonly="yes">MIR-DV-CHILD-ADDR-CD</span>
+                    </td>
+<!-- CPA001 - 08300702 -->
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CHILD-ADDR-SEQ-NUM" stype="Text" displayonly="yes">MIR-DV-CHILD-ADDR-SEQ-NUM</span>
+                    </td>
+<!-- /CPA001 - 08300702 -->
+                </tr>
+            </table>
+<!--/ANB021-->
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+
+Back to top
+                </a>
+            </p>
+<!-- ANB006 <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="3">Listbill Relationships</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-LBILL-CLI-ID"> Client ID:</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-LBILL-CLI-NM">ListBill Name:</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-LBILL-ADDR-CD"> Address Type:</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-LBILL-CLI-ID" stype="Text" displayonly="yes">MIR-DV-LBILL-CLI-ID</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-LBILL-CLI-NM" stype="Text" displayonly="yes">MIR-DV-LBILL-CLI-NM</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-LBILL-ADDR-CD" stype="Text" displayonly="yes">MIR-DV-LBILL-ADDR-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+-->
+            <table class="tabledisplay" genrows="0" keyfield="1">
+                <tr>
+<!-- CPA001 - 08300702
+                    <td class="celldisplayheading" colspan="3">Interested Party Relationships</td>
+-->
+                    <td class="celldisplayheading" colspan="5">Interested Party Relationships</td>
+<!-- /CPA001 - 08300702 -->
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-IPARTY-CLI-ID-T[1]"> Client ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-IPARTY-CLI-NM-T[1]">Interested Party Name</label>
+                    </td>
+<!-- CPA001 - 08300702 -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-IPARTY-ADDR-GR-CD-T[1]">Character Set</label>
+                    </td>
+<!-- /CPA001 - 08300702 -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-IPARTY-ADDR-CD-T[1]"> Client Address Type</label>
+                    </td>
+<!-- CPA001 - 08300702 -->
+                    <td class="celldataentryheading" height="30">
+                        <label for="MIR-DV-IPARTY-ADDR-SEQ-NUM-T[1]">Sequence Number</label>
+                    </td>
+<!-- /CPA001 - 08300702 -->
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-IPARTY-CLI-ID-T[]" stype="Text" displayonly="yes">MIR-DV-IPARTY-CLI-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-IPARTY-CLI-NM-T[]" stype="Text" displayonly="yes">MIR-DV-IPARTY-CLI-NM-T[]</span>
+                    </td>
+<!-- CPA001 - 08300702 -->
+                    <td class="celldisplay">
+                        <span id="MIR-DV-IPARTY-ADDR-GR-CD-T[]" stype="Text" displayonly="yes">MIR-DV-IPARTY-ADDR-GR-CD-T[]</span>
+                    </td>
+<!-- /CPA001 - 08300702 -->
+                    <td class="celldisplay">
+                        <span id="MIR-DV-IPARTY-ADDR-CD-T[]" stype="Text" displayonly="yes">MIR-DV-IPARTY-ADDR-CD-T[]</span>
+                    </td>
+<!-- CPA001 - 08300702 -->
+                    <td class="celldisplay">
+                        <span id="MIR-DV-IPARTY-ADDR-SEQ-NUM-T[]" stype="Text" displayonly="yes">MIR-DV-IPARTY-ADDR-SEQ-NUM-T[]</span>
+                    </td>
+<!-- /CPA001 - 08300702 -->
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0" keyfield="1">
+                <tr>
+<!-- CPA001 - 08300702
+                    <td class="celldisplayheading" colspan="3">Trustee Relationships</td>
+-->
+                    <td class="celldisplayheading" colspan="5">Trustee Relationships</td>
+<!-- /CPA001 - 08300702 -->
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-TRST-CLI-ID-T[1]"> Client ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-TRST-CLI-NM-T[1]">Trustee Name</label>
+                    </td>
+<!-- CPA001 - 08300702 -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-TRST-ADDR-GR-CD-T[1]">Character Set</label>
+                    </td>
+<!-- /CPA001 - 08300702 -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-TRST-ADDR-CD-T[1]"> Address Type</label>
+                    </td>
+<!-- CPA001 - 08300702 -->
+                    <td class="celldataentryheading" height="30">
+                        <label for="MIR-DV-TRST-ADDR-SEQ-NUM-T[1]">Sequence Number</label>
+                    </td>
+<!-- /CPA001 - 08300702 -->
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-TRST-CLI-ID-T[]" stype="Text" displayonly="yes">MIR-DV-TRST-CLI-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-TRST-CLI-NM-T[]" stype="Text" displayonly="yes">MIR-DV-TRST-CLI-NM-T[]</span>
+                    </td>
+<!-- CPA001 - 08300702 -->
+                    <td class="celldisplay">
+                        <span id="MIR-DV-TRST-ADDR-GR-CD-T[]" stype="Text" displayonly="yes">MIR-DV-TRST-ADDR-GR-CD-T[]</span>
+                    </td>
+<!-- /CPA001 - 08300702 -->
+                    <td class="celldisplay">
+                        <span id="MIR-DV-TRST-ADDR-CD-T[]" stype="Text" displayonly="yes">MIR-DV-TRST-ADDR-CD-T[]</span>
+                    </td>
+<!-- CPA001 - 08300702 -->
+                    <td class="celldisplay">
+                        <span id="MIR-DV-TRST-ADDR-SEQ-NUM-T[]" stype="Text" displayonly="yes">MIR-DV-TRST-ADDR-SEQ-NUM-T[]</span>
+                    </td>
+<!-- /CPA001 - 08300702 -->
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0" keyfield="1">
+                <tr>
+<!-- CPA001 - 08300702
+                    <td class="celldisplayheading" colspan="4">Assignee Relationships</td>
+                    <td class="celldisplayheading" />
+-->
+                    <td class="celldisplayheading" colspan="7">Assignee Relationships</td>
+<!-- /CPA001 - 08300702 -->
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-ASIGN-CLI-ID-T[1]">Client ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-ASIGN-CLI-NM-T[1]">Assignee Name</label>
+                    </td>
+<!-- CPA001 - 08300702 -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-ASIGN-ADDR-GR-CD-T[1]">Character Set</label>
+                    </td>
+<!-- /CPA001 - 08300702 -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-ASIGN-ADDR-CD-T[1]"> Address Type</label>
+                    </td>
+<!-- CPA001 - 08300702 -->
+                    <td class="celldataentryheading" height="30">
+                        <label for="MIR-DV-ASIGN-ADDR-SEQ-NUM-T[1]">Sequence Number</label>
+                    </td>
+<!-- /CPA001 - 08300702 -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-ASIGN-SUB-CD-T[1]">Relationship Type</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-CLI-ASIGN-DT-T[1]">Effective Date of Assignment</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-ASIGN-CLI-ID-T[]" stype="Text" displayonly="yes">MIR-DV-ASIGN-CLI-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-ASIGN-CLI-NM-T[]" stype="Text" displayonly="yes">MIR-DV-ASIGN-CLI-NM-T[]</span>
+                    </td>
+<!-- CPA001 - 08300702 -->
+                    <td class="celldisplay">
+                        <span id="MIR-DV-ASIGN-ADDR-GR-CD-T[]" stype="Text" displayonly="yes">MIR-DV-ASIGN-ADDR-GR-CD-T[]</span>
+                    </td>
+<!-- /CPA001 - 08300702 -->
+                    <td class="celldisplay">
+                        <span id="MIR-DV-ASIGN-ADDR-CD-T[]" stype="Text" displayonly="yes">MIR-DV-ASIGN-ADDR-CD-T[]</span>
+                    </td>
+<!-- CPA001 - 08300702 -->
+                    <td class="celldisplay">
+                        <span id="MIR-DV-ASIGN-ADDR-SEQ-NUM-T[]" stype="Text" displayonly="yes">MIR-DV-ASIGN-ADDR-SEQ-NUM-T[]</span>
+                    </td>
+<!-- /CPA001 - 08300702 -->
+                    <td class="celldisplay">
+                        <span id="MIR-DV-ASIGN-SUB-CD-T[]" stype="Text" displayonly="yes">MIR-DV-ASIGN-SUB-CD-T[]</span>
+                    </td>
+<!--6.4 - Correct stype from 'text' to 'date'-->
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CLI-ASIGN-DT-T[]" stype="Date" displayonly="yes">MIR-POL-CLI-ASIGN-DT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0" keyfield="1">
+                <tr>
+<!-- CPA001 - 08300702
+                    <td class="celldisplayheading" colspan="4">Annuitant Relationships</td>
+-->
+                    <td class="celldisplayheading" colspan="6">Annuitant Relationships</td>
+<!-- /CPA001 - 08300702 -->
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-ANUTNT-CLI-ID-T[1]"> Client ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-ANUTNT-CLI-NM-T[1]">Annuitant Name</label>
+                    </td>
+<!-- CPA001 - 08300702 -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-ANUTNT-ADDR-GR-CD-T[1]">Character Set</label>
+                    </td>
+<!-- /CPA001 - 08300702 -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-ANUTNT-ADDR-CD-T[1]">Address Type</label>
+                    </td>
+<!-- CPA001 - 08300702 -->
+                    <td class="celldataentryheading" height="30">
+                        <label for="MIR-DV-ANUTNT-ADDR-SEQ-NUM-T[1]">Sequence Number</label>
+                    </td>
+<!-- /CPA001 - 08300702 -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-ANUTNT-SUB-CD-T[1]">Relationship Type</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-ANUTNT-CLI-ID-T[]" stype="Text" displayonly="yes">MIR-DV-ANUTNT-CLI-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-ANUTNT-CLI-NM-T[]" stype="Text" displayonly="yes">MIR-DV-ANUTNT-CLI-NM-T[]</span>
+                    </td>
+<!-- CPA001 - 08300702 -->
+                    <td class="celldisplay">
+                        <span id="MIR-DV-ANUTNT-ADDR-GR-CD-T[]" stype="Text" displayonly="yes">MIR-DV-ANUTNT-ADDR-GR-CD-T[]</span>
+                    </td>
+<!-- /CPA001 - 08300702 -->
+                    <td class="celldisplay">
+                        <span id="MIR-DV-ANUTNT-ADDR-CD-T[]" stype="Text" displayonly="yes">MIR-DV-ANUTNT-ADDR-CD-T[]</span>
+                    </td>
+<!-- CPA001 - 08300702 -->
+                    <td class="celldisplay">
+                        <span id="MIR-DV-ANUTNT-ADDR-SEQ-NUM-T[]" stype="Text" displayonly="yes">MIR-DV-ANUTNT-ADDR-SEQ-NUM-T[]</span>
+                    </td>
+<!-- /CPA001 - 08300702 -->
+                    <td class="celldisplay">
+                        <span id="MIR-DV-ANUTNT-SUB-CD-T[]" stype="Text" displayonly="yes">MIR-DV-ANUTNT-SUB-CD-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="BillingInformation">Billing Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BILL-TYP-CD">Billing Method:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-TYP-CD" stype="Text" displayonly="yes">MIR-POL-BILL-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BILL-MODE-CD">Premium Mode:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-MODE-CD" stype="Text" displayonly="yes">MIR-POL-BILL-MODE-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PMT-DRW-DY">Billing Draw Day:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PMT-DRW-DY" stype="Day" displayonly="yes">MIR-POL-PMT-DRW-DY</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BILL-LEAD-TIME-DUR">Billing Lead Time:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BILL-LEAD-TIME-DUR" stype="Text" displayonly="yes">MIR-BILL-LEAD-TIME-DUR</span>
+                    </td>
+                </tr>
+<!-- ANB006 - 12090422 -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BILL-LEAD-MO-CTL-CD">Billing Use Code:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BILL-LEAD-MO-CTL-CD" stype="Text" displayonly="yes">MIR-BILL-LEAD-MO-CTL-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BILL-LEAD-MO-DUR">Billing Lead Months:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BILL-LEAD-MO-DUR" stype="Number" displayonly="yes">MIR-BILL-LEAD-MO-DUR</span>
+                    </td>
+                </tr>
+<!-- /ANB006 - 12090422 -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-SNDRY-AMT">Sundry Payment Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-SNDRY-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-POL-SNDRY-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-SNDRY-REASN-CD">Sundry Payment Reason:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-SNDRY-REASN-CD" stype="Text" displayonly="yes">MIR-POL-SNDRY-REASN-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-CRNT-MODE-FCT">Policy Mode Factor:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CRNT-MODE-FCT" stype="Number" elength="8" decimals="7" signed="yes" displayonly="yes">MIR-POL-CRNT-MODE-FCT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MODE-FCT-RESTR-IND">Restrict
+      Billing Mode Factor:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-MODE-FCT-RESTR-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PFEE-FCT">Policy Fee Factor:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PFEE-FCT" stype="Number" elength="8" decimals="7" signed="yes" displayonly="yes">MIR-POL-PFEE-FCT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PFEE-RESTR-IND">Restrict Billing of Policy Fee:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-POL-PFEE-RESTR-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+<!--ANB007-->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INIT-ATOPUP-AMT">Initial Ad-hoc Top-up Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INIT-ATOPUP-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-INIT-ATOPUP-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                    </td>
+                    <td class="celldisplay">
+                    </td>
+                </tr>
+<!--/ANB007-->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-LOAN-REPAY-AMT">Amount Billed for Repayment of Loans:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-LOAN-REPAY-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-POL-LOAN-REPAY-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BILL-TO-DT-NUM">Policy Billed To Date:</label>
+                    </td>
+<!--6.4 - Correct stype from 'text' to 'date'-->
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-TO-DT-NUM" stype="Date" displayonly="yes">MIR-POL-BILL-TO-DT-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-UL-INIT-PREM-AMT">Universal Life Initial Premium Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-UL-INIT-PREM-AMT" stype="Currency" elength="13"  displayonly="yes">MIR-UL-INIT-PREM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BILL-RMND-REASN-CD">Billing Reminder Notice Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BILL-RMND-REASN-CD" stype="Text" displayonly="yes">MIR-BILL-RMND-REASN-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PMT-RETRN-1-DT">Date of Most Recent Returned
+                        Cheque/Charge:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PMT-RETRN-1-DT" stype="Date" displayonly="yes">MIR-POL-PMT-RETRN-1-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PMT-RETRN-1-CD">Reason Most Recent Returned
+                        Cheque/Charge Returned:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PMT-RETRN-1-CD" stype="Text" displayonly="yes">MIR-POL-PMT-RETRN-1-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PMT-RETRN-2-DT">Date of Previous Returned
+                        Cheque/Charge:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PMT-RETRN-2-DT" stype="Date" displayonly="yes">MIR-POL-PMT-RETRN-2-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PMT-RETRN-2-CD">Reason Previous
+                        Cheque/Charge Returned:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PMT-RETRN-2-CD" stype="Text" displayonly="yes">MIR-POL-PMT-RETRN-2-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PMT-REDRW-DT">Date Credit Card/PAC/Autopay
+                        will Redraw For Premiums:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PMT-REDRW-DT" stype="Date" displayonly="yes">MIR-POL-PMT-REDRW-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PMT-REDRW-OPT-CD">Credit Card/PAC/Autopay Redraw Option:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PMT-REDRW-OPT-CD" stype="Text" displayonly="yes">MIR-PMT-REDRW-OPT-CD</span>
+                    </td>
+                </tr>
+<!--APR005-->
+               <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-MODE-FCT-TYP-CD">Policy Mode Factor Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-MODE-FCT-TYP-CD" stype="Text" displayonly="yes">MIR-POL-MODE-FCT-TYP-CD</span>
+                    </td>
+<!--ANB006          <td class="celldisplaylabel">
+                    </td>
+                    <td class="celldisplay">
+                    </td>
+-->
+<!--ANB006-->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LIST-BILL-CLI-CD">List Bill Client:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LIST-BILL-CLI-CD" stype="Text" displayonly="yes">MIR-LIST-BILL-CLI-CD</span>
+                    </td>
+<!--/ANB006-->
+                </tr>
+<!--/APR005-->
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="SFBInformation">Special Frequency Billing
+      Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-SFB-CD">Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-SFB-CD" stype="Text" displayonly="yes">MIR-POL-SFB-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SFB-SEMI-MTHLY-DY"> Semi Monthly Alternate Draw Day:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SFB-SEMI-MTHLY-DY" stype="Day" displayonly="yes">MIR-SFB-SEMI-MTHLY-DY</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SFB-STRT-DT"> Start Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SFB-STRT-DT" stype="Date" displayonly="yes">MIR-SFB-STRT-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SFB-END-DT"> End Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SFB-END-DT" stype="Date" displayonly="yes">MIR-SFB-END-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SFB-GP-STRT-DT-NUM"> Gap Start Date:</label>
+                    </td>
+<!--6.4 - Do not change stype from 'text' to 'date'-this results in a Pageserver error-->
+                    <td class="celldisplay">
+                        <span id="MIR-SFB-GP-STRT-DT-NUM" stype="Text" displayonly="yes">MIR-SFB-GP-STRT-DT-NUM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SFB-GP-END-DT-NUM"> Gap End Date:</label>
+                    </td>
+<!--6.4 - Do not change stype from 'text' to 'date'-this results in a Pageserver error-->
+                    <td class="celldisplay">
+                        <span id="MIR-SFB-GP-END-DT-NUM" stype="Text" displayonly="yes">MIR-SFB-GP-END-DT-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SFB-NXT-BILL-AMT"> Next Billing Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SFB-NXT-BILL-AMT" stype="Currency" elength="15" displayonly="yes">MIR-SFB-NXT-BILL-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay"></td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" >
+              <tr>
+                <td class="celldisplayheading" colspan="4">
+                <a name="RestrictBillInformation">Restrict Billing Information</a>
+                    </td>
+              </tr>
+              <tr>
+                <td  class="celldisplaylabel">
+                    <label for="MIR-RBILL-EFF-DT">Restrict Billing Effective Date:</label>
+                </td>
+                <td  class="celldisplay">
+                    <span id="MIR-RBILL-EFF-DT" stype="Date" displayonly="yes">MIR-RBILL-EFF-DT</span>
+                </td>
+                <td  class="celldisplaylabel">
+                    <label for="MIR-RBILL-END-DT">Restrict Billing End Date:</label>
+                </td>
+                <td  class="celldisplay">
+                    <span id="MIR-RBILL-END-DT" stype="Date" displayonly="yes">MIR-RBILL-END-DT</span>
+                </td>
+              </tr>
+              <tr>
+                <td  class="celldisplaylabel"><label for="MIR-POL-RBILL-CD">Restrict NFO or Billing Activity Reason:</label></td>
+                <td  class="celldisplay"><span id="MIR-POL-RBILL-CD" stype="Text" displayonly="yes">MIR-POL-RBILL-CD</span>
+                </td>
+                <td  class="celldisplaylabel"><label for="MIR-RBILL-DEPT-ID">Department That Initiated Restrict Billing:</label></td>
+                <td  class="celldisplay"><span id="MIR-RBILL-DEPT-ID" stype="Text" displayonly="yes">MIR-RBILL-DEPT-ID</span>
+                </td>
+              </tr>
+              <tr>
+                <td  class="celldisplaylabel"><label for="MIR-RBILL-MISC-1-CD">Restrict Billing Code #1:</label></td>
+                <td  class="celldisplay"><span id="MIR-RBILL-MISC-1-CD" stype="Text" displayonly="yes">MIR-RBILL-MISC-1-CD</span>
+                </td>
+                <td  class="celldisplaylabel"><label for="MIR-RBILL-MISC-2-CD">Restrict
+                  Billing Code #2:</label></td>
+                <td  class="celldisplay"><span id="MIR-RBILL-MISC-2-CD" stype="Text" displayonly="yes">MIR-RBILL-MISC-2-CD</span></td>
+              </tr>
+              <tr>
+                <td  class="celldisplaylabel"><label for="MIR-RBILL-USER-ID">User ID that Initiated Restrict Bill:</label></td>
+                <td  class="celldisplay"><span id="MIR-RBILL-USER-ID" stype="Text" displayonly="yes">MIR-RBILL-USER-ID</span>
+                </td>
+                <td  class="celldisplaylabel"></td>
+                <td  class="celldisplay"></td>
+              </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="NonTraditionalOptions">Non-Traditional Options</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-DB-OPT-CD">Death Benefit Option:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-DB-OPT-CD" stype="Text" displayonly="yes">MIR-POL-DB-OPT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-PERI-PREM-AMT">Planned Periodic Premium Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-PERI-PREM-AMT" stype="Currency" elength="13" displayonly="yes">MIR-PLAN-PERI-PREM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-UL-LAPS-STRT-DT">Lapse Start Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-UL-LAPS-STRT-DT" stype="Date" displayonly="yes">MIR-UL-LAPS-STRT-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                    </td>
+                    <td class="celldisplay">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <label for="MIR-PREM-RECALC-OPT-CD">Premium
+      Recalculation Option:</label>
+                    <td class="celldisplay"><span id="MIR-PREM-RECALC-OPT-CD" stype="Text" displayonly="yes">MIR-PREM-RECALC-OPT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-VPO-PU-DUR">Vanish Premium
+      Duration:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-VPO-PU-DUR" stype="Text" displayonly="yes">MIR-POL-VPO-PU-DUR</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="AnnuityRRIFLIFInformation">Annuity / RRIF / LIF Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-ANPAYO-MODE-CD">Frequency of Payments:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ANPAYO-MODE-CD" stype="Text" displayonly="yes">MIR-POL-ANPAYO-MODE-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay"></td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-ANPAYO-EFF-DT">Effective Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ANPAYO-EFF-DT" stype="Date" displayonly="yes">MIR-POL-ANPAYO-EFF-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-ANPAYO-PMT-DT">Payment Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ANPAYO-PMT-DT" stype="Date" displayonly="yes">MIR-POL-ANPAYO-PMT-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">Annuity / RRIF / LIF 1</td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplaylabel" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-ANPAYO-1-AMT">Amount Paid:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ANPAYO-1-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-POL-ANPAYO-1-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ANPAYO-1-MTHD-CD">Payout Method:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ANPAYO-1-MTHD-CD" stype="Text" displayonly="yes">MIR-ANPAYO-1-MTHD-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ANPAYO-1-DEST-CD">Destination Registered:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ANPAYO-1-DEST-CD" stype="Text" displayonly="yes">MIR-ANPAYO-1-DEST-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">Annuity / RRIF / LIF 2</td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplaylabel" colspan="2" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-ANPAYO-2-AMT">Amount Paid:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ANPAYO-2-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-POL-ANPAYO-2-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ANPAYO-2-MTHD-CD">Payout Method:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ANPAYO-2-MTHD-CD" stype="Text" displayonly="yes">MIR-ANPAYO-2-MTHD-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ANPAYO-2-DEST-CD">Destination Registered:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ANPAYO-2-DEST-CD" stype="Text" displayonly="yes">MIR-ANPAYO-2-DEST-CD</span>
+                    </td>
+                </tr>
+<!--CPR148 - 03201501-->
+               <tr>
+<!--CPR148 START 05081501
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-ANTY-PAYO-STAT-CD">Policy Annual Payout Status:</label>
+                    </td>
+/CPR148 END 05081501-->
+<!--CPR148 - 05081501-->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-ANTY-PAYO-STAT-CD">Policy Annuity Payout Status:</label>
+                    </td>
+<!--/CPR148 - 05081501-->
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ANTY-PAYO-STAT-CD" stype="Text" displayonly="yes">MIR-POL-ANTY-PAYO-STAT-CD</span>
+                    </td>
+                    <td class="celldisplay">
+                    </td>
+                    <td class="celldisplay">
+                    </td>
+               </tr>
+<!--/CPR148 - 03201501-->
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="PolicyOptions">Policy Options</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-DIV-OPT-CD"> Dividend Option:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-DIV-OPT-CD" stype="Text" displayonly="yes">MIR-POL-DIV-OPT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-AUTO-PREM-PMT-IND">Automatic Premium Payment:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-AUTO-PREM-PMT-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+<!-- APR061 -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-DIV-XCES-CD"> Policy Excess Dividend Option:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-DIV-XCES-CD" stype="Text" displayonly="yes">MIR-POL-DIV-XCES-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+<!--CPA301 - 05311204 -->
+                          <label for="MIR-POL-PLEG-TYP-CD">Pledge Type Code:</label>
+<!--/CPA301 - 05311204 -->
+                    </td>
+                    <td class="celldisplay">
+<!--CPA301 - 05311204 -->
+                          <span id="MIR-POL-PLEG-TYP-CD" stype="Text" displayonly="yes">MIR-POL-PLEG-TYP-CD</span>
+<!--/CPA301 - 05311204 -->
+                    </td>
+                </tr>
+<!-- /APR061 -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-NFO-CD">Non-Forfeiture Option:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-NFO-CD" stype="Text" displayonly="yes">MIR-POL-NFO-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-APL-IND">APL Separate Option for
+      Nonforfeiture:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-POL-APL-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+<!--ANB006-->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INIT-PAYO-MTH-CD">Contractual Payout Option:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INIT-PAYO-MTH-CD" stype="Text" displayonly="yes">MIR-INIT-PAYO-MTH-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PAYO-BNK-ACCT-NU">Payout Bank A/C No:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PAYO-BNK-ACCT-NU" stype="Text" displayonly="yes">MIR-PAYO-BNK-ACCT-NU</span>
+                    </td>
+                </tr>
+<!--/ANB006-->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PREM-DSCNT-TYP-CD">Premium Discount Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PREM-DSCNT-TYP-CD" stype="Text" displayonly="yes">MIR-PREM-DSCNT-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PREM-DSCNT-PCT">Policy Discount Percentage:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PREM-DSCNT-PCT" stype="Percent" elength="5" decimals="3" signed="yes" displayonly="yes">MIR-POL-PREM-DSCNT-PCT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-REINS-CD">Reinsurance Indicator:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-REINS-CD" stype="Text" displayonly="yes">MIR-POL-REINS-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <label for="MIR-POL-PREM-TYP-CD">Premium Type:</label>
+                    <td class="celldisplay"><span id="MIR-POL-PREM-TYP-CD" stype="Text" displayonly="yes">MIR-POL-PREM-TYP-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-ENHC-CHNG-DT">Date of Next Enhancement Option:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ENHC-CHNG-DT" stype="Date" displayonly="yes">MIR-POL-ENHC-CHNG-DT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <label for="MIR-POL-ENHC-NELCT-QTY">Number of Non-Elections for Enhancement Benefit:</label>
+                    <td class="celldisplay"><span id="MIR-POL-ENHC-NELCT-QTY" stype="Text" displayonly="yes">MIR-POL-ENHC-NELCT-QTY</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ENHC-UWG-REQIR-IND">Underwriting required for Enhancement Indicator:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ENHC-UWG-REQIR-IND" stype="Text" displayonly="yes">MIR-ENHC-UWG-REQIR-IND</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <label for="MIR-ENHC-UWG-APROV-IND">Underwriting Approved for Enhancement Indicator:</label>
+                    <td class="celldisplay"><span id="MIR-ENHC-UWG-APROV-IND" stype="Text" displayonly="yes">MIR-ENHC-UWG-APROV-IND</span>
+                    </td>
+                </tr>
+<!--Functional 20453 - New row - Added fields for Recording Policy Settlement Options-->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-SETL-OPT-CD">Policy Settlement Option Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-SETL-OPT-CD" stype="Text" displayonly="yes">MIR-POL-SETL-OPT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-SETL-OPT-DUR">Policy Settlement Option Term:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-SETL-OPT-DUR" stype="Number" elength="3" decimals="0"  displayonly="yes">MIR-POL-SETL-OPT-DUR</span>
+                    </td>
+                </tr>
+<!--APR002-->
+                <tr>
+                    <td class="celldisplaylabel">
+<!-- CPR232 - 08110901
+                        <label for="MIR-PREM-HLDY-CD">Premium Holiday Indicator:</label>
+-->
+                        <label for="MIR-PREM-HLDY-CD" style="display:none">Premium Holiday Indicator:</label>
+<!-- /CPR232 - 08110901 -->
+                    </td>
+                    <td class="celldisplay">
+<!-- CPR232 - 08110901
+                        <span id="MIR-PREM-HLDY-CD" stype="Text" displayonly="yes">MIR-PREM-HLDY-CD</span>
+-->
+                        <span id="MIR-PREM-HLDY-CD" stype="Text" displayonly="yes" style="display:none">MIR-PREM-HLDY-CD</span>
+<!-- /CPR232 - 08110901 -->
+                    </td>
+<!--APR051
+                    <td class="celldisplaylabel">
+                    </td>
+                    <td class="celldisplay">
+                    </td>
+-->
+<!--/APR002-->
+<!--APR051-->
+                    <td class="celldisplaylabel">
+<!--APR059          <label for="MIR-POL-APL-DUR">APL stop months:</label> -->
+<!--APR059-->
+                        <label for="MIR-POL-APL-DUR">APL Counter:</label>
+<!--/APR059-->
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-APL-DUR" stype="Text" displayonly="yes">MIR-POL-APL-DUR</span>
+                    </td>
+<!--/APR051-->
+                </tr>
+<!--APR051-->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-NFO-RESTR-CD">NFO Restriction:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-NFO-RESTR-CD" stype="Text" displayonly="yes">MIR-POL-NFO-RESTR-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+<!--APR079 - 11260401-->
+                        <label for="MIR-POL-PU-NFO-CD">Paid Up Non-Forfeiture Option:</label>
+<!--/APR079 - 11260401-->
+                    </td>
+                    <td class="celldisplay">
+<!--APR079 - 11260401-->
+                        <span id="MIR-POL-PU-NFO-CD" stype="Text" displayonly="yes">MIR-POL-PU-NFO-CD</span>
+<!--/APR079 - 11260401-->
+                    </td>
+                </tr>
+<!--/APR051-->
+<!--APR086 - 09020402 -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-CPN-OPT-CD"> Policy Coupon Option:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CPN-OPT-CD" stype="Text" displayonly="yes">MIR-POL-CPN-OPT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-CPN-XCES-CD"> Policy Excess Coupon Option:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CPN-XCES-CD" stype="Text" displayonly="yes">MIR-POL-CPN-XCES-CD</span>
+                    </td>
+               </tr>
+<!-- CPR203 - 09240801 -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LINT-CAP-DT-TYP-CD"> Loan Interest Capitalization Basis:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LINT-CAP-DT-TYP-CD" stype="Text" displayonly="yes">MIR-LINT-CAP-DT-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LINT-CAP-FREQ-CD"> Loan Interest Capitalization Frequency:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LINT-CAP-FREQ-CD" stype="Text" displayonly="yes">MIR-LINT-CAP-FREQ-CD</span>
+                    </td>
+               </tr>
+<!-- /CPR203 - 09240801 -->
+<!--/APR086 - 09020402 -->
+<!--CPR301 - 05141207-->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-ANTY-OPT-CD"> Policy Annuity Option:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ANTY-OPT-CD" stype="Text" displayonly="yes">MIR-POL-ANTY-OPT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-ANTY-XCES-CD"> Policy Excess Annuity Option:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ANTY-XCES-CD" stype="Text" displayonly="yes">MIR-POL-ANTY-XCES-CD</span>
+                    </td>
+               </tr>
+<!--/CPR301 - 05141207-->
+<!--CPR143 - 05281402-->
+               <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-IER-CPN-OPT-CD">IER Coupon option code:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-IER-CPN-OPT-CD" stype="Text" displayonly="yes">MIR-POL-IER-CPN-OPT-CD</span>
+                    </td>
+                    <td class="celldisplay">
+                    </td>
+                    <td class="celldisplay">
+                    </td>
+               </tr>
+<!--/CPR143 - 05281402-->
+            </table>
+            <br />
+<!--Functional 20475 - New table - Added fields for Death Benefit Guarantees and Riders-->
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="DeathBenefitGuarantees">Death Benefit Guarantees</a>
+                    </td>
+                </tr>
+              <tr>
+                <td class="celldisplaylabel">
+                    <label for="MIR-POL-DBG-BASIC-CD">Death Benefit Basic Plan Option:</label>
+                </td>
+                <td class="celldisplay">
+                    <span id="MIR-POL-DBG-BASIC-CD" stype="Text" displayonly="yes">MIR-POL-DBG-BASIC-CD</span>
+                </td>
+                <td class="celldisplaylabel">
+                    <label for="MIR-DV-POL-DBG-RESET-IND">Reset/Lock-In:</label>
+                </td>
+                <td class="celldisplay">
+                    <input type="checkbox" name="MIR-DV-POL-DBG-RESET-IND" stype="Indicator" value="Y" disabled="yes" />
+                </td>
+              </tr>
+              <tr>
+                <td class="celldisplaylabel">
+                    <label for="MIR-DV-ANNV-VALU-IND">Account Value on a Specified Anniversary:</label>
+                </td>
+                <td class="celldisplay">
+                    <input type="checkbox" name="MIR-DV-ANNV-VALU-IND" stype="Indicator" value="Y" disabled="yes" />
+                </td>
+                <td class="celldisplaylabel">
+                    <label for="MIR-DV-POL-DBG-MAV-IND">Maximum Account Value:</label>
+                </td>
+                <td class="celldisplay">
+                    <input type="checkbox" name="MIR-DV-POL-DBG-MAV-IND" stype="Indicator" value="Y" disabled="yes" />
+                </td>
+              </tr>
+              <tr>
+                <td class="celldisplaylabel">
+                    <label for="MIR-DV-POL-DBG-ROLU-IND">Premium Roll-Up:</label>
+                </td>
+                <td class="celldisplay">
+                    <input type="checkbox" name="MIR-DV-POL-DBG-ROLU-IND" stype="Indicator" value="Y" disabled="yes" />
+                </td>
+                <td class="celldisplaylabel">
+                    <label for="MIR-POL-DBG-LOAN-IND">Loan Inclusion:</label>
+                </td>
+                <td class="celldisplay">
+                    <input type="checkbox" name="MIR-POL-DBG-LOAN-IND" stype="Indicator" value="Y" disabled="yes" />
+                </td>
+              </tr>
+            <tr>
+            <td class="celldisplaylabel">
+                    <label for="MIR-POL-DBG-LOCK-QTY">Remaining # of Lock-Ins:</label>
+              </td>
+            <td class="celldisplay">
+                <span id="MIR-POL-DBG-LOCK-QTY" stype="Number" elength="4" decimals="0"  displayonly="yes">MIR-POL-DBG-LOCK-QTY</span>
+                </td>
+                <td class="celldisplaylabel">
+              </td>
+            <td class="celldisplay">
+           </td>
+             </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="DisabilityClaimPayments">Disability Claim Payments</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLM-PAYO-MTHD-CD">Payments Method:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLM-PAYO-MTHD-CD" stype="Text" displayonly="yes">MIR-CLM-PAYO-MTHD-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLM-PAYE-REL-CD">Recipient of Payment:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLM-PAYE-REL-CD" stype="Text" displayonly="yes">MIR-CLM-PAYE-REL-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLM-PAYE-POL-ID-BASE">Transferred
+      Claim Payments Policy ID:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLM-PAYE-POL-ID-BASE" stype="Text" displayonly="yes">MIR-CLM-PAYE-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLM-PAYE-POL-ID-SFX">Policy Suffix:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLM-PAYE-POL-ID-SFX" stype="Text" displayonly="yes">MIR-CLM-PAYE-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLM-PAYE-CVG-NUM">Coverage Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLM-PAYE-CVG-NUM" stype="Text" displayonly="yes">MIR-CLM-PAYE-CVG-NUM</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay"></td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="RegistrationInformation">Registration Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-REG-CD">Jurisdiction Policy Registered:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-REG-CD" stype="Text" displayonly="yes">MIR-POL-REG-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-REG-DT">Registered Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-REG-DT" stype="Date" displayonly="yes">MIR-POL-REG-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-REG-SAV-PORTN-CD">Savings Portion
+      Code:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-REG-SAV-PORTN-CD" stype="Text" displayonly="yes">MIR-REG-SAV-PORTN-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-REG-SAV-PORTN-AMT">Savings Portion Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-REG-SAV-PORTN-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-REG-SAV-PORTN-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-REG-FND-SRC-CD">Fund
+      Source:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-REG-FND-SRC-CD" stype="Text" displayonly="yes">MIR-POL-REG-FND-SRC-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PNSN-SRC-CD">Pension
+      Source:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PNSN-SRC-CD" stype="Text" displayonly="yes">MIR-POL-PNSN-SRC-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-REG-SPCL-HNDL-CD">Special Handling Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-REG-SPCL-HNDL-CD" stype="Text" displayonly="yes">MIR-REG-SPCL-HNDL-CD</span>
+                    </td>
+<!--Functional 20452 - add field for date of last foreign content test-->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-FRGN-TST-DT">Date of Last Foreign Content Test:</label>
+                    </td>
+<!--6.4 - Correct stype from 'text' to 'date'-->
+                 <td class="celldisplay">
+                        <span id="MIR-POL-FRGN-TST-DT" stype="Date" displayonly="yes">MIR-POL-FRGN-TST-DT</span>
+                       </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="TaxInformation">Tax Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-TAX-TYP-CD">Policy Taxation Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-TAX-TYP-CD" stype="Text" displayonly="yes">MIR-POL-TAX-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-TXEMP-CD">Tax Exempt Status:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-TXEMP-CD" stype="Text" displayonly="yes">MIR-POL-TXEMP-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PDF-RFND-CD">Premium Deposit Fund
+      Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PDF-RFND-CD" stype="Text" displayonly="yes">MIR-POL-PDF-RFND-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TAX-RPT-FREQ-CD">Tax Reporting Frequency:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TAX-RPT-FREQ-CD" stype="Text" displayonly="yes">MIR-TAX-RPT-FREQ-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LOAN-INT-DEDBL-IND">Include Loan Interest in ACB:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-LOAN-INT-DEDBL-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PNSN-QUALF-CD">Pension
+      Qualifier:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PNSN-QUALF-CD" stype="Text" displayonly="yes">MIR-POL-PNSN-QUALF-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TAX-1035-ACB-AMT">ACB on 1035 Exchange Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TAX-1035-ACB-AMT" stype="Currency" elength="15" displayonly="yes">MIR-TAX-1035-ACB-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-MEC-CD">Modified Endowment Contract:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-MEC-CD" stype="Text" displayonly="yes">MIR-POL-MEC-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-GAIN-RPT-TIME-CD">Gain on Disposition Reporting Time Code:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-GAIN-RPT-TIME-CD" stype="Text" displayonly="yes">MIR-GAIN-RPT-TIME-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ACRU-CALC-TIME-CD">Accrual Income Calculation Time Code:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACRU-CALC-TIME-CD" stype="Text" displayonly="yes">MIR-ACRU-CALC-TIME-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LXPCT-CALC-CD">Basis of Life Expectancy Factor:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LXPCT-CALC-CD" stype="Text" displayonly="yes">MIR-LXPCT-CALC-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LXPCT-RECALC-IND">Annual Life Expectancy Factor Recalculation Indicator:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-LXPCT-RECALC-IND" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-CTRY-TAX-DT">Policy Country Tax Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CTRY-TAX-DT" stype="Date" displayonly="yes">MIR-POL-CTRY-TAX-DT</span>
+                    </td>
+                    <td class="celldisplaylabel"></td>
+                              <td class="celldisplay"></td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="ProcessingInformation">Processing Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-NXT-ACTV-TYP-CD">Type of Next Automatic Activity:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NXT-ACTV-TYP-CD" stype="Text" displayonly="yes">MIR-NXT-ACTV-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-NXT-ACTV-DT">Date of Next Automatic Process:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-NXT-ACTV-DT" stype="Date" displayonly="yes">MIR-POL-NXT-ACTV-DT</span>
+                    </td>
+                </tr>
+<!--APA060-->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PNDFND-UNITIZE-DT">Pending Fund Unitization Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PNDFND-UNITIZE-DT" stype="Date" displayonly="yes">MIR-PNDFND-UNITIZE-DT</span>
+                    </td>
+<!-- CPR203 - 09240801
+                    <td class="celldisplaylabel"/>
+                    <td class="celldisplay"/>
+-->
+                    <td class="celldisplaylabel" >
+                        <label for="MIR-NXT-LINT-CAP-DT">Next Interest Capitalization Date:</label>
+                    </td>
+                    <td class="celldisplay" >
+                        <span id="MIR-NXT-LINT-CAP-DT" stype="Date" displayonly="yes">MIR-NXT-LINT-CAP-DT</span>
+                    </td>
+<!-- /CPR203 - 09240801 -->
+                </tr>
+<!--/APA060-->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-FINAL-DISP-DT">Final Disposition Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-FINAL-DISP-DT" stype="Date" displayonly="yes">MIR-POL-FINAL-DISP-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <!--ANB007-->
+                        <!--<label for="MIR-POL-APP-CMPLT-DT">Application Completion Date:</label>-->
+                        <label for="MIR-POL-APP-CMPLT-DT">Application Complete Date:</label>
+                        <!--/ANB007-->
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-APP-CMPLT-DT" stype="Date" displayonly="yes">MIR-POL-APP-CMPLT-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-MAIL-DT">Date of Policy Mailing:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-MAIL-DT" stype="Date" displayonly="yes">MIR-POL-MAIL-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-MAIL-REASN-CD">Reason for Additional Policy Mailing:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-MAIL-REASN-CD" stype="Text" displayonly="yes">MIR-POL-MAIL-REASN-CD</span>
+                    </td>
+                </tr>
+<!-- ANB006 - 06130527
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-FREE-LK-END-DT">End of Free Look Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-FREE-LK-END-DT" stype="Date" displayonly="yes">MIR-POL-FREE-LK-END-DT</span>
+                    </td>
+-->
+<!--APR053-->
+<!--APR053
+                                        <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+-->
+<!-- ANB006 - 06130527
+                    <td class="celldisplaylabel">
+                                            <label for="MIR-POL-FREE-LK-XFER-DT">Free Look Transfer Date:</label>
+                                        </td>
+                                        <td class="celldisplay">
+                                            <span id="MIR-POL-FREE-LK-XFER-DT" stype="Date" displayonly="yes">MIR-POL-FREE-LK-XFER-DT</span>
+                    </td>
+-->
+<!--APR053 ENDS-->
+<!-- ANB006 - 06130527
+                </tr>
+-->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-CEAS-DT">Policy Cease Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CEAS-DT" stype="Date" displayonly="yes">MIR-POL-CEAS-DT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <label for="MIR-POL-CEAS-REASN-CD">Reason for Policy Termination on Cease Date:</label>
+                    <td class="celldisplay" />
+                <span id="MIR-POL-CEAS-REASN-CD" stype="Text" displayonly="yes">MIR-POL-CEAS-REASN-CD</span>
+                </tr>
+<!--ANB007-->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-REISS-IND">Reissue Indicator:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-POL-REISS-IND" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+                    <td class="celldisplaylabel" >
+                    <label for="MIR-SPCL-QUOT-IND">Special Quotation Indicator:</label>
+                    </td>
+                    <td class="celldisplay" >
+                       <input type="checkbox" name="MIR-SPCL-QUOT-IND" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+                </tr>
+<!-- ANB006 - 06130527 -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-REISS-DT">Reissue Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-REISS-DT" stype="Date" displayonly="yes">MIR-POL-REISS-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-REISS-END-DT">Reissue End Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-REISS-END-DT" stype="Date" displayonly="yes">MIR-POL-REISS-END-DT</span>
+                    </td>
+                </tr>
+<!-- /ANB006 - 06130527 -->
+
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PMT-TYP-CD">Payment Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PMT-TYP-CD" stype="Text" displayonly="yes">MIR-PMT-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" >
+<!-- ANB006 - 06130527 -->
+                        <label for="MIR-POL-REISS-CNCL-DT">Reissue Cancel Date:</label>
+<!-- /ANB006 - 06130527 -->
+                    </td>
+                    <td class="celldisplay" >
+<!-- ANB006 - 06130527 -->
+                        <span id="MIR-POL-REISS-CNCL-DT" stype="Date" displayonly="yes">MIR-POL-REISS-CNCL-DT</span>
+<!-- /ANB006 - 06130527 -->
+                    </td>
+                </tr>
+<!--/ANB007-->
+<!--APA020-->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-SPND-REASN-CD">Suspend Reason:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-SPND-REASN-CD" stype="Text" DisplayOnly="yes">"MIR-POL-SPND-REASN-CD"</span>
+                    </td>
+                    <td class="celldisplaylabel" >
+                        <label for="MIR-POL-SPND-USER-ID">Suspend by:</label>
+                    </td>
+                    <td class="celldisplay" >
+                        <span id="MIR-POL-SPND-USER-ID" stype="Text" DisplayOnly="yes">"MIR-POL-SPND-USER-ID"</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-SPND-EFF-DT">Suspend Effective Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-SPND-EFF-DT" stype="Date" displayonly="yes">MIR-POL-SPND-EFF-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-SPND-TRMN-DT">Suspend Termination Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-SPND-TRMN-DT" stype="Date" displayonly="yes">MIR-POL-SPND-TRMN-DT</span>
+                    </td>
+                </tr>
+<!--/APA020-->
+<!--CPR224 - 05190904-->
+                <tr>
+                    <td class="celldisplaylabel" >
+                        <label for="MIR-OVR-LOAN-RPT-IND">Over-Loan Report Indicator:</label>
+                    </td>
+                    <td class="celldisplay" >
+                        <input type="checkbox" name="MIR-OVR-LOAN-RPT-IND" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+                    <td class="celldisplaylabel" >
+                    </td>
+                    <td class="celldisplay" >
+                    </td>
+                </tr>
+<!--/CPR224 - 05190904-->
+                <tr>
+                    <td class="celldisplaylabel" >
+                        <label for="MIR-POL-COMNT-TXT">Comments/Remarks:</label>
+                    </td>
+                    <td class="celldisplay" colspan="3">
+                        <span id="MIR-POL-COMNT-TXT" stype="Text" displayonly="yes">MIR-POL-COMNT-TXT</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+
+Back to top
+                </a>
+            </p>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#BasicInformation">Basic Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#ApplicationInformation">Application Information</a>
+                        </td>
+<!--CFA208 - 01240906-->
+                        <td class="cellanchors">
+                            <a href="#MonthiversaryInformation">Monthiversary Information</a>
+                        </td>
+<!--/CFA208 - 01240906-->
+<!--CPR218 - 05130902-->
+                        <td class="cellanchors">
+                            <a href="#WaiverProcessingInformation">Waiver Processing Information</a>
+                        </td>
+<!--/CPR218 - 05130902-->
+                        <td class="cellanchors">
+                            <a href="#ServicingAgentInformation">Servicing Agent</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#OwnerRelationships">Owner</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#OtherRelationships">Other Relationships</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#BillingInformation">Billing</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#SFBInformation">SFB Billing</a>
+                        </td>
+                         <td class="cellanchors">
+                            <a href="#RestrictBillInformation">Restrict Billing Information</a>
+                        </td>
+                         <td class="cellanchors">
+                            <a href="#NonTraditionalOptions">Non-Traditional Options</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#AnnuityRRIFLIFInformation">Annuity</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#PolicyOptions">Policy Options</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#DeathBenefitGuarantees">Death Benefit Guarantees</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#DisabilityClaimPayments">Disability Claim Payments</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#RegistrationInformation">Registration</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
             <input type="hidden" name="action" stype="Hidden" />
             <input type="hidden" name="index" stype="Hidden" />
         </form>

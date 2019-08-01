@@ -1,3 +1,25 @@
+<!--
+* Converted to Pathfinder 3.0 on Jan 24, 2005 2:24:04 PM CST
+*
+*********************************************************************************
+*  (C) COPYRIGHT 2001 INSURANCE SOFTWARE SOLUTIONS CORP.  ALL RIGHTS RESERVED
+*********************************************************************************
+*  Component:   BF8000-I.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  014590  6.0      New for release 6.0
+*  ANB007  00002    October 29, 2002 Phyllis Lam
+*  ANB007           Apply auto-tab for policy ID input
+*  AGL079  REL6.4   JUL 23, 2003 TIM DU.
+*  AGL079           V6.3.1 THAI CHANGED RETROFIT TO V6.4
+*  APA036  00003    APR 21, 2005 RICHARD HU
+*  APA036           PR #07
+*  APA036           ONLIINE INQUIRY OF TERMINATE MASTERS
+*********************************************************************************
+ -->
 <html>
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -12,7 +34,10 @@
                         <label for="MIR-POL-ID-BASE">Policy ID:</label>
                     </td>
                     <td class="celldatakey">
+                        <!--ANB007-->
+                        <!--<input type="text" value=" " name="MIR-POL-ID-BASE" stype="Text" maxlength="9" mandatory="yes" onfocus="enterField(this)" />-->
                         <input type="text" value=" " name="MIR-POL-ID-BASE" stype="Text" maxlength="9" mandatory="yes" onKeyDown="autoTabNext(this,'down')" onKeyUp="autoTabNext(this,'up','MIR-POL-ID-SFX')" onfocus="enterField(this)" />
+                        <!--/ANB007-->
                     </td>
                     <td class="celldatakeylabel">
                         <label for="MIR-POL-ID-SFX">Suffix:</label>
@@ -20,6 +45,14 @@
                     <td class="celldatakey">
                         <input type="text" value=" " name="MIR-POL-ID-SFX" stype="Text" maxlength="1" onfocus="enterField(this)" />
                     </td>
+<!--APA036 - 04210507 -->
+                    <td class="celldatakeylabel">
+                        <label for="MIR-MAST-DISP-CD">Display Type:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-MAST-DISP-CD" size="1" stype="Selection" mandatory="yes" onfocus="enterField(this)"></select>
+                    </td>
+<!--/APA036 - 04210507 -->
                 </tr>
             </table>
             <input type="hidden" name="action" stype="Hidden" />
